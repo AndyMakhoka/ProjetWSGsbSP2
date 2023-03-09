@@ -2,7 +2,7 @@
 @section('content')
     {!! Form::open(['url'=> 'login']) !!}
     <div class="col-md-12 well well-md">
-        <center><h1>Authentification</h1></center>
+        <center><h1>se connecter</h1></center>
         <div class="form-horizontal">
             <div class="form-group">
                 <label class="col-md-3 control-label">Identifiant : </label>
