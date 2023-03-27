@@ -22,7 +22,14 @@ Route::get('/seConnecter', [VisiteurController::class, 'getLogin']);
 Route::post('/login', [VisiteurController::class , 'signIn']);
 Route::get('/seDeconnecter', [VisiteurController::class, 'signOut']);
 
-Route::get('/getListeFrais', [FraisController::class, 'getFraisVisiteur']);
+Route::get('/listeVisiteurs', [VisiteurController::class, 'getListeVisiteurs']);
+Route::get('/profilVisiteur', [VisiteurController::class, 'getProfilVisiteur']);
+
+
+
+
+
+
 Route::get('/listerFrais', [FraisController::class, 'getFraisVisiteur']);
 
 

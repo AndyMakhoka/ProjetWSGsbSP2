@@ -65,4 +65,44 @@ class VisiteurController extends Controller
         return view('home');
     }
 
+
+    public function getListeVisiteurs()
+    {
+        try {
+            $erreur = "";
+            $monErreur = Session::get('monErreur');
+            Session::forget('monErreur');
+            $unServiceVisiteur = new ServiceVisiteur();
+            $id_visiteur = Session::get('id');
+            $mesVisiteurs = $unServiceVisiteur->getVisiteurs();
+            return view('Vues/ListeVisiteurs', compact('mesVisiteurs', 'erreur'));
+        } catch (MonException$e) {
+            $erreur = $e->getMessage();
+            return view('Vues/error', compact('erreur'));
+        } catch (Exception$e) {
+            $erreur = $e->getMessage();
+            return view('Vues/error', compact('erreur'));
+        }
+    }
+
+    public function getProfilVisiteur()
+    {
+        try {
+            $erreur = "";
+            $monErreur = Session::get('monErreur');
+            Session::forget('monErreur');
+            $unServiceVisiteur = new ServiceVisiteur();
+            $id_visiteur = Session::get('id');
+            $profilVisiteur = $unServiceVisiteur->getProfilVisiteur(1);
+            return view('Vues/formModificationVisiteur', compact('profilVisiteur', 'erreur'));
+        } catch (MonException$e) {
+            $erreur = $e->getMessage();
+            return view('Vues/error', compact('erreur'));
+        } catch (Exception$e) {
+            $erreur = $e->getMessage();
+            return view('Vues/error', compact('erreur'));
+        }
+    }
+
+
 }

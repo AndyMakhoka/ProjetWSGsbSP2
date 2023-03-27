@@ -4,7 +4,7 @@
 <div class="container">
     <div class="col-md-5">
         <div class="blanc">
-            <h1>Liste des visiteur</h1>
+            <h1>Liste des visiteurs</h1>
         </div>
 
         <table class="table table-bordered table-striped table-responsive">
@@ -15,7 +15,7 @@
                     <th style="width:60%">Prenom</th>
                     <th style="width:60%">Labo</th>
                     <th style="width:60%">Secteur</th>
-                    <th style="width:60%">Commun</th>
+                    <th style="width:60%">Commune</th>
                     <th style="width:60%">Adresse</th>
 
                     <th style="width:20%">Modifier</th>
@@ -27,10 +27,16 @@
             <tr>
                 <td>  {{ $unVisiteur->id_visiteur }}</td>
                 <td>  {{ $unVisiteur->nom_visiteur }}</td>
-                <td style="text-align: center;"><a href="{{ url('/modifierFrais') }}/{{ $unFrais->id_frais }}"><span class="glyphicon glyphicon-pencil" data-toggle="tootltip" data-olacement="top" title=""></span> </a> </td>
+                <td>  {{ $unVisiteur->prenom_visiteur }}</td>
+                <td>  {{ $unVisiteur->nom_laboratoire }}</td>
+                <td>  {{ $unVisiteur->lib_secteur }}</td>
+                <td>  {{ $unVisiteur->cp_visiteur }}</td>
+                <td>  {{ $unVisiteur->adresse_visiteur }}</td>
+
+                <td style="text-align: center;"><a href="{{ url('/modifierFrais') }}/{{ $unVisiteur->id_visiteur }}"><span class="glyphicon glyphicon-pencil" data-toggle="tootltip" data-olacement="top" title=""></span> </a> </td>
                 <td style="text-align:center;">
                     <a class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top" title="Supprimer" href="#"
-                       onclick="javascript:if (confirm('Suppression confirmée ?')){window.location='{{ url('/supprimerFrais') }}/{{$unFrais->id_frais}}'; }">
+                       onclick="javascript:if (confirm('Suppression confirmée ?')){window.location='{{ url('/supprimerFrais') }}/{{$unVisiteur->id_visiteur}}'; }">
                     </a>
                 </td>
             </tr>

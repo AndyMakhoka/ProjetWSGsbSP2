@@ -38,7 +38,7 @@
                 @if (Session::get('id') > 0)
                 <div class="collapse navbar-collapse" id="navbar-collapse-target">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/lister') }}" data-toggle="collapse" data-target=".navbar-collapse.in">Visiteurs</a></li>
+                        <li><a href="{{ url('/listeVisiteurs') }}" data-toggle="collapse" data-target=".navbar-collapse.in">Visiteurs</a></li>
                         <li><a href="{{ url('/lister') }}" data-toggle="collapse" data-target=".navbar-collapse.in">Praticiens</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
