@@ -38,7 +38,7 @@
                 @if(Session::get('id') == 0)
                 <div class="collapse navbar-collapse" id="navbar-collapse-target">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a  data-toggle="collapse" data-toggle="modal" data-target="#exampleModal">Se connecter</a></li>
+                        <li><a data-toggle="collapse" data-toggle="modal" data-target="#exampleModal">Se connecter</a></li>
                     </ul>
                 </div>
                 @endif
