@@ -8,6 +8,14 @@
         {!! Html::style('assets/css/bootstrap.css') !!}
         {!! Html::style('assets/css/bootstrap.css') !!}
         {!! Html::style('assets/css/monStyle.css') !!}
+
+        {!! Html::style('assets/css/style.css') !!}
+
+        <script src="{{asset('js/jquery.js')}}"></script>
+        <script src="{{asset('js/popper.min.js')}}"></script>
+        <script src="{{asset('js/bootstrap.js')}}"></script>
+
+
         <!-- Fonts -->
         <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet'
               type='text/css'>
@@ -30,7 +38,7 @@
                 @if(Session::get('id') == 0)
                 <div class="collapse navbar-collapse" id="navbar-collapse-target">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ url('/seConnecter') }}" data-toggle="collapse" data-target=".navbar-collapse.in">Se connecter</a></li>
+                        <li><a data-toggle="collapse" data-toggle="modal" data-target="#exampleModal">Se connecter</a></li>
                     </ul>
                 </div>
                 @endif
@@ -51,6 +59,52 @@
         </nav>
     </div>
     <div class="container">
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+
+                        {!! Form::open(['url'=> 'login']) !!}
+                        <div class="col-md-12 well well-md">
+                            <center><h1>se connecter</h1></center>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Identifiant : </label>
+                                    <div class="col-md-6  col-md-3">
+                                        <input type="text" name="login" class="form-control" placeholder="Votre identifiant" required autofocus>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Mot de passe : </label>
+                                    <div class="col-md-6 col-md-3">
+                                        <input type="password" name="pwd" class="form-control" placeholder="Votre mot de passe" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-md-offset-3">
+                                        <button type="submit" class="btn btn-default btn-primary"><span
+                                                class="glyphicon glyphicon-log-in"></span> Valider
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-primary"
+                                                onclick="javascript: window.location = '';">
+                                            <span class="glyphicon glyphicon-remove"></span> Annuler</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-md-offset-3">
+                                </div>
+                            </div>
+                        </div>
+                        {{ Form::close() }}
+                </div>
+            </div>
+            {{ Form::close() }}
+        </div>
+
 
         @yield('content')
     </div>
