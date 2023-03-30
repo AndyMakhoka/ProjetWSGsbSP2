@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\dao\ServiceSecteur;
 use MongoDB\Driver\Exception\Exception;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Request;
 use App\metier\Visiteur;
-use App\dao\ServiceFrais;
 
 use App\dao\ServiceVisiteur;
+use App\dao\ServiceLabo;
 use App\Exceptions\MonException;
 
 class VisiteurController extends Controller
@@ -75,7 +76,10 @@ class VisiteurController extends Controller
             $unServiceVisiteur = new ServiceVisiteur();
             $id_visiteur = Session::get('id');
             $mesVisiteurs = $unServiceVisiteur->getVisiteurs();
-            return view('Vues/Admin/ListeVisiteurs', compact('mesVisiteurs', 'erreur'));
+
+
+
+            return view('Vues/Admin/ListeVisiteurs', compact('mesVisiteurs','erreur'));
         } catch (MonException$e) {
             $erreur = $e->getMessage();
             return view('Vues/error', compact('erreur'));
@@ -117,7 +121,14 @@ class VisiteurController extends Controller
             Session::forget('monErreur');
             $unServiceVisiteur = new ServiceVisiteur();
             $profilVisiteur = $unServiceVisiteur->getProfilVisiteur($idVisiteur);
-            return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'erreur'));
+
+            $unServiceLabo = new ServiceLabo();
+            $mesLabo = $unServiceLabo->getListeLabo();
+
+            $unServiceSecteur = new ServiceSecteur();
+            $mesSecteurs = $unServiceSecteur->getListeSecteur();
+
+            return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'erreur'));
         } catch (MonException$e) {
             $erreur = $e->getMessage();
             return view('Vues/error', compact('erreur'));

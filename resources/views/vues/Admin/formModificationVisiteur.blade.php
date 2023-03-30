@@ -10,6 +10,11 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
+
+                <button type="button" id="Edit"  value=""><span
+                        class="glyphicon glyphicon-pencil" data-toggle="tootltip" data-olacement="top"
+                        title=""></span></button>
+
                 <div class="row mt-2">
                     <div class="col-md-6"><label class="labels">Prenom</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->prenom_visiteur}}" value=""></div>
                     <div class="col-md-6"><label class="labels">Nom</label><input type="text" class="form-control" value="" placeholder="{{$profilVisiteur->nom_visiteur}}"></div>
@@ -19,7 +24,17 @@
                 <div class="row mt-3">
                     <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->nom_visiteur}}" value=""></div>
                     <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->cp_visiteur}}" value=""></div>
-                    <div class="col-md-12"><label class="labels">Secteur</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->lib_secteur}}" value=""></div>
+                    <div class="col-md-12"><label class="labels">Secteur</label><input id="NoEditS" type="text" class="form-control" placeholder="{{$profilVisiteur->lib_secteur}}" value="">
+
+                    <select id="EditS" class="form-control" name="Secteurs" required>
+                        <OPTION VALUE="0" >Sélectionner un Secteur</OPTION>
+                        @foreach ($mesSecteurs as $unS)
+                            {
+                            <OPTION VALUE =" {{ $unS->id_secteur }}"> {{ $unS->lib_secteur }}</OPTION>
+                            }
+                        @endforeach
+                    </select></div>
+
                     <div class="col-md-12"><label class="labels">Laboratoire</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->nom_laboratoire}}" value=""></div>
                 </div>
                 <div class="row mt-3">
@@ -43,4 +58,57 @@
 </div>
 
 
-@stop
+@endsection
+@section('script')
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            console.log("OK")
+
+            $("#Edit").click(function (){
+
+                $("#NoEditF").hide();
+                $("#EditF").show();
+
+                /*
+                if ($('#Edit').prop('checked')) {
+                    $("#NoEditS").hide();
+                    $("#EditS").show();
+                } else {
+                    $("#NoEditS").show();
+                    $("#EditS").hide();
+                }
+
+                 */
+
+                //document.getElementById('NoEditS').hidden= true;
+            });
+
+            $("#NoEdit").click(function (){
+
+                $("#NoEditF").show();
+                $("#EditF").hide();
+
+                /*
+                if ($('#Edit').prop('checked')) {
+                    $("#NoEditS").hide();
+                    $("#EditS").show();
+                } else {
+                    $("#NoEditS").show();
+                    $("#EditS").hide();
+                }
+
+                 */
+
+                //document.getElementById('NoEditS').hidden= true;
+            });
+
+            $("#rech").keyup(function() {
+                var type = $('input[name=type]:checked').val()
+                var valeur = $("#rech").val();
+                $('#contenu').load('api/searchUser/' + type + '/' + valeur);
+            });
+        });
+
+    </script>
+@endsection

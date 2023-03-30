@@ -13,7 +13,10 @@
                             <input type="radio" name="type"  value="nom_visiteur" autocomplete="off" checked> Nom
                         </label>
                         <label class="btn btn-secondary">
-                            <input type="radio" name="type"  value="prenom_visiteur" autocomplete="off"> Prénom
+                            <input type="radio" name="type"  value="lib_secteur" autocomplete="off"> Secteur
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="type"  value="nom_laboratoire" autocomplete="off"> Laboratoire
                         </label>
                     </div>
                     <input type="text" id="rech" style="width: 200px; margin-top: 5px;" class="form-control rech"/>

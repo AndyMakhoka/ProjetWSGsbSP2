@@ -27,9 +27,6 @@ height:50px
 
 
 
-body {
-    background: rgb(99, 39, 120)
-}
 
 .form-control:focus {
     box-shadow: none;
