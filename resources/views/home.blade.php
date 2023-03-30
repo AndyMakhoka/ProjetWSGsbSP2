@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('content')
 
+    {!! Html::style('assets/css/style.css') !!}
+
     <div class="container">
 
         <h1 style="color: white; margin-top: 100px">Application GSB</h1>

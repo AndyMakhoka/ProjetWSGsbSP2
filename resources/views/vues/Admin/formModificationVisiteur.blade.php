@@ -11,25 +11,26 @@
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
-                    <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
+                    <div class="col-md-6"><label class="labels">Prenom</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->prenom_visiteur}}" value=""></div>
+                    <div class="col-md-6"><label class="labels">Nom</label><input type="text" class="form-control" value="" placeholder="{{$profilVisiteur->nom_visiteur}}"></div>
+                    <div class="col-md-6"><label class="labels">Date d'embauche :  </label>{{$profilVisiteur->date_embauche}}</div>
+
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                    <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
-                    <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
-                    <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
+                    <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->nom_visiteur}}" value=""></div>
+                    <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->cp_visiteur}}" value=""></div>
+                    <div class="col-md-12"><label class="labels">Secteur</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->lib_secteur}}" value=""></div>
+                    <div class="col-md-12"><label class="labels">Laboratoire</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->nom_laboratoire}}" value=""></div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
                     <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
                 </div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button>
+                <a class="btn btn-primary profile-button" type="button" href=" {{ url('/listeVisiteurs')}}">
+                        <span class="glyphicon glyphicon-remove"></span>Retour</a></div>
             </div>
+
         </div>
         <div class="col-md-4">
             <div class="p-3 py-5">

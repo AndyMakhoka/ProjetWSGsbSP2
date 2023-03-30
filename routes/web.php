@@ -23,7 +23,7 @@ Route::post('/login', [VisiteurController::class , 'signIn']);
 Route::get('/seDeconnecter', [VisiteurController::class, 'signOut']);
 
 Route::get('/listeVisiteurs', [VisiteurController::class, 'getListeVisiteurs']);
-Route::get('/profilVisiteur', [VisiteurController::class, 'getProfilVisiteur']);
+Route::get('/profilVisiteur/{id}', [VisiteurController::class, 'getProfilVisiteur']);
 
 
 

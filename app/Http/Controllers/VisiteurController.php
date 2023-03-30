@@ -75,7 +75,7 @@ class VisiteurController extends Controller
             $unServiceVisiteur = new ServiceVisiteur();
             $id_visiteur = Session::get('id');
             $mesVisiteurs = $unServiceVisiteur->getVisiteurs();
-            return view('Vues/ListeVisiteurs', compact('mesVisiteurs', 'erreur'));
+            return view('Vues/Admin/ListeVisiteurs', compact('mesVisiteurs', 'erreur'));
         } catch (MonException$e) {
             $erreur = $e->getMessage();
             return view('Vues/error', compact('erreur'));
@@ -85,16 +85,15 @@ class VisiteurController extends Controller
         }
     }
 
-    public function getProfilVisiteur()
+    public function getProfilVisiteur($idVisiteur)
     {
         try {
             $erreur = "";
             $monErreur = Session::get('monErreur');
             Session::forget('monErreur');
             $unServiceVisiteur = new ServiceVisiteur();
-            $id_visiteur = Session::get('id');
-            $profilVisiteur = $unServiceVisiteur->getProfilVisiteur(1);
-            return view('Vues/formModificationVisiteur', compact('profilVisiteur', 'erreur'));
+            $profilVisiteur = $unServiceVisiteur->getProfilVisiteur($idVisiteur);
+            return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'erreur'));
         } catch (MonException$e) {
             $erreur = $e->getMessage();
             return view('Vues/error', compact('erreur'));
