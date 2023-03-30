@@ -128,7 +128,9 @@ class VisiteurController extends Controller
             $unServiceSecteur = new ServiceSecteur();
             $mesSecteurs = $unServiceSecteur->getListeSecteur();
 
-            return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'erreur'));
+            $disabled = "";
+
+            return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'disabled', 'erreur'));
         } catch (MonException$e) {
             $erreur = $e->getMessage();
             return view('Vues/error', compact('erreur'));

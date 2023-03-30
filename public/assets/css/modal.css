@@ -11,6 +11,7 @@
     overflow: auto;
 
     backdrop-filter: blur(20px);
+
 }
 
 
@@ -19,6 +20,7 @@
     .modal-content {
         width: 450px;
         height: 450px;
+
     }
 }
 
@@ -34,6 +36,7 @@
     color: #ccc;
     padding: 10px 0;
     height: 150px;
+
 }
 
 .modal-content, #caption {
@@ -99,6 +102,12 @@
     transition: width 0.3s ease-in-out 0s;
     width: 100%;
 }
+
+
+.well{
+    border-radius: 20px;
+}
+
 
 /* End Modal */
 

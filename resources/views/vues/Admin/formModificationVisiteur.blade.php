@@ -11,22 +11,26 @@
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
 
-                <button type="button" id="Edit"  value=""><span
+                <button type="button" id="Edit"  value="" style="width: 100%; background: white; border: none; text-align: right;"><span
                         class="glyphicon glyphicon-pencil" data-toggle="tootltip" data-olacement="top"
                         title=""></span></button>
 
+                <button type="button" id="NoEdit"  value="" style="width: 100%; background: white; border: none; text-align: right;" hidden><span
+                        class="glyphicon glyphicon-remove" data-toggle="tootltip" data-olacement="top"
+                        title=""></span></button>
+
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Prenom</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->prenom_visiteur}}" value=""></div>
-                    <div class="col-md-6"><label class="labels">Nom</label><input type="text" class="form-control" value="" placeholder="{{$profilVisiteur->nom_visiteur}}"></div>
+                    <div class="col-md-6"><label class="labels">Prenom</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->prenom_visiteur}}" value="" disabled></div>
+                    <div class="col-md-6"><label class="labels">Nom</label><input type="text" class="form-control" value="" placeholder="{{$profilVisiteur->nom_visiteur}}" disabled></div>
                     <div class="col-md-6"><label class="labels">Date d'embauche :  </label>{{$profilVisiteur->date_embauche}}</div>
 
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->nom_visiteur}}" value=""></div>
-                    <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->cp_visiteur}}" value=""></div>
-                    <div class="col-md-12"><label class="labels">Secteur</label><input id="NoEditS" type="text" class="form-control" placeholder="{{$profilVisiteur->lib_secteur}}" value="">
+                    <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->nom_visiteur}}" value="" disabled></div>
+                    <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->cp_visiteur}}" value="" disabled></div>
+                    <div class="col-md-12"><label class="labels">Secteur</label><input id="NoEditS" type="text" class="form-control" placeholder="{{$profilVisiteur->lib_secteur}}" value="" disabled>
 
-                    <select id="EditS" class="form-control" name="Secteurs" required>
+                    <select class="form-control" name="Secteurs" required disabled>
                         <OPTION VALUE="0" >Sélectionner un Secteur</OPTION>
                         @foreach ($mesSecteurs as $unS)
                             {
@@ -35,23 +39,23 @@
                         @endforeach
                     </select></div>
 
-                    <div class="col-md-12"><label class="labels">Laboratoire</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->nom_laboratoire}}" value=""></div>
+                    <div class="col-md-12"><label class="labels">Laboratoire</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->nom_laboratoire}}" value="" disabled></div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
-                    <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
+                    <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value="" disabled></div>
+                    <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state" disabled></div>
                 </div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button>
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" disabled><span class="glyphicon glyphicon-save"></span> Save Profile</button>
                 <a class="btn btn-primary profile-button" type="button" href=" {{ url('/listeVisiteurs')}}">
-                        <span class="glyphicon glyphicon-remove"></span>Retour</a></div>
+                        <span class="glyphicon glyphicon-remove"></span></a></div>
             </div>
 
         </div>
         <div class="col-md-4">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
-                <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
+                <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience" value="" disabled> </div> <br>
+                <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value="" disabled></div>
             </div>
         </div>
     </div>
@@ -67,8 +71,13 @@
 
             $("#Edit").click(function (){
 
-                $("#NoEditF").hide();
-                $("#EditF").show();
+                $('.form-control').prop('disabled', false);
+                $('.profile-button').prop('disabled', false);
+
+
+                $("#Edit").hide();
+                $("#NoEdit").show();
+
 
                 /*
                 if ($('#Edit').prop('checked')) {
@@ -86,8 +95,11 @@
 
             $("#NoEdit").click(function (){
 
-                $("#NoEditF").show();
-                $("#EditF").hide();
+                $('.form-control').prop('disabled', true);
+                $("#NoEdit").hide();
+                $("#Edit").show();
+
+
 
                 /*
                 if ($('#Edit').prop('checked')) {
