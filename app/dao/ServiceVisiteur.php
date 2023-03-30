@@ -49,6 +49,24 @@ class ServiceVisiteur
         }
     }
 
+    public function getUserNomType($type, $nom) {
+        try {
+            $liste = DB::table('visiteur')
+                ->where($type, 'like', $nom.'%')
+                ->select()
+                ->join('laboratoire', 'visiteur.id_laboratoire', '=', 'laboratoire.id_laboratoire')
+                ->join('secteur', 'visiteur.id_secteur', '=', 'secteur.id_secteur')
+                ->orderBy('visiteur.nom_visiteur')
+                ->orderBy('visiteur.prenom_visiteur')
+
+                ->get();
+            return $liste;
+        }
+        catch (QueryException $e) {
+            throw new MonException($e->getMessage());
+        }
+    }
+
     public function getProfilVisiteur($idvisiteur)
     {
         try {

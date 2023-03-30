@@ -12,9 +12,17 @@
 
 
 
-        <script src="{{asset('js/jquery.js')}}"></script>
-        <script src="{{asset('js/popper.min.js')}}"></script>
-        <script src="{{asset('js/bootstrap.js')}}"></script>
+        {!! Html::script('assets/js/bootstrap.min.js') !!}
+        {!! Html::script('assets/js/jquery-3.1.1.js') !!}
+        {!! Html::script('assets/js/jquery-3.3.1.min.js') !!}
+        {!! Html::script('assets/js/jquery-ui.min.js') !!}
+        {!! Html::script('assets/js/npm.js') !!}
+
+        {!! Html::script('assets/js/ui-bootstrap-tpls.0.11.js') !!}
+        {!! Html::script('assets/js/ui-bootstrap-tpls.js') !!}
+        {!! Html::script('assets/js/bootstrap.js') !!}
+
+
 
 
         <!-- Fonts -->
@@ -109,15 +117,9 @@
 
         @yield('content')
     </div>
-    {!! Html::script('assets/js/bootstrap.min.js') !!}
-    {!! Html::script('assets/js/jquery-3.1.1.js') !!}
-    {!! Html::script('assets/js/jquery-3.3.1.min.js') !!}
-    {!! Html::script('assets/js/jquery-ui.min.js') !!}
-    {!! Html::script('assets/js/npm.js') !!}
 
-    {!! Html::script('assets/js/ui-bootstrap-tpls.0.11.js') !!}
-    {!! Html::script('assets/js/ui-bootstrap-tpls.js') !!}
-    {!! Html::script('assets/js/bootstrap.js') !!}
+
+    @yield('script')
     </body>
 </html>
 

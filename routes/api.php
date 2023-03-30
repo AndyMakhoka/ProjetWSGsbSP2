@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\VisiteurController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/searchUser/{type}/{nom}', [VisiteurController::class, 'getListeUserByName']);
+Route::get('/searchUser/{type}', [VisiteurController::class, 'getListeUserByName']);

@@ -85,6 +85,30 @@ class VisiteurController extends Controller
         }
     }
 
+
+    public function getListeUserByName($type, $nom = '') {
+        try {
+            $erreur = "";
+            $monErreur = Session::get('monErreur');
+            Session::forget('monErreur');
+            $user = new ServiceVisiteur();
+            $id_visiteur = Session::get('id');
+
+            $mesVisiteurs = $user->getUserNomType($type, $nom);
+            $vide = false;
+            if ($mesVisiteurs->count() == 0)
+                $vide = true;
+            return view('api.listeVisiteurs', compact('mesVisiteurs', 'vide'));
+        } catch (MonException $e) {
+            $erreur = $e->getMessage();
+            return view('vues/error', compact('erreur'));
+        }
+    }
+
+
+
+
+
     public function getProfilVisiteur($idVisiteur)
     {
         try {

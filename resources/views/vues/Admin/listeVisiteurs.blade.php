@@ -1,11 +1,6 @@
 @extends('layouts.master')
 @section('content')
 
-    <div class="container">
-        <div class="col-md-5">
-            <div class="blanc">
-                <h1>Liste des visiteurs</h1>
-            </div>
 
             <div class="container main" style="height: 250px; text-align: center;">
                 <h1>
@@ -15,18 +10,19 @@
 
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-secondary active">
-                            <input type="radio" name="type"  value="NOMA" autocomplete="off" checked> Nom
+                            <input type="radio" name="type"  value="nom_visiteur" autocomplete="off" checked> Nom
                         </label>
                         <label class="btn btn-secondary">
-                            <input type="radio" name="type"  value="PRENOMA" autocomplete="off"> Prénom
+                            <input type="radio" name="type"  value="prenom_visiteur" autocomplete="off"> Prénom
                         </label>
                     </div>
-                    <input type="text" id="rech" style="width: 200px; margin-top: 5px;" class="form-control"/>
+                    <input type="text" id="rech" style="width: 200px; margin-top: 5px;" class="form-control rech"/>
                 </div>
             </div>
 
 
 
+            <div class="container main" style="overflow-y : scroll; height: 1000px; width: 1200px">
             <table class="table table-bordered table-striped table-responsive" style="text-align: center">
                 <thead>
                 <tr>
@@ -42,7 +38,7 @@
                     <th style="width:20%">Supprimer</th>
                 </tr>
                 </thead>
-                <tbody class="contnue">
+                <tbody id="contenu">
                 @foreach($mesVisiteurs as $unVisiteur)
                     <tr>
                         <td>  {{ $unVisiteur->id_visiteur }}</td>
@@ -74,21 +70,25 @@
                 @include('vues.error')
             </div>
 
-        </div>
-    </div>
+            </div>
+
+
+
+
 @endsection
+
+
 @section('script')
-    <script>
-        $(document).ready(function() {
-            $('#listeMail').hide();
-            $('#buttonMail').click(function(){
-                $('#listeMail').toggle(500);
-            });
-            $('#rech').keyup(function() {
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+        console.log("OK")
+            $("#rech").keyup(function() {
                 var type = $('input[name=type]:checked').val()
-                var valeur = $('#rech').val();
+                var valeur = $("#rech").val();
                 $('#contenu').load('api/searchUser/' + type + '/' + valeur);
             });
         });
+
     </script>
 @endsection
