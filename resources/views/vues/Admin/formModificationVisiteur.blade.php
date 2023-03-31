@@ -20,26 +20,35 @@
                         title=""></span></button>
 
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Prenom</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->prenom_visiteur}}" value="" disabled></div>
-                    <div class="col-md-6"><label class="labels">Nom</label><input type="text" class="form-control" value="" placeholder="{{$profilVisiteur->nom_visiteur}}" disabled></div>
+                    <div class="col-md-6"><label class="labels">Prenom</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->prenom_visiteur}}" value="{{$profilVisiteur->prenom_visiteur}}" disabled></div>
+                    <div class="col-md-6"><label class="labels">Nom</label><input type="text" class="form-control" value="{{$profilVisiteur->nom_visiteur}}" placeholder="{{$profilVisiteur->nom_visiteur}}" disabled></div>
                     <div class="col-md-6"><label class="labels">Date d'embauche :  </label>{{$profilVisiteur->date_embauche}}</div>
 
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->nom_visiteur}}" value="" disabled></div>
-                    <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->cp_visiteur}}" value="" disabled></div>
-                    <div class="col-md-12"><label class="labels">Secteur</label><input id="NoEditS" type="text" class="form-control" placeholder="{{$profilVisiteur->lib_secteur}}" value="" disabled>
+                    <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->nom_visiteur}}" value="{{$profilVisiteur->nom_visiteur}}" disabled></div>
+                    <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->cp_visiteur}}" value="{{$profilVisiteur->cp_visiteur}}" disabled></div>
+                    <div class="col-md-12"><label class="labels">Secteur</label>
 
                     <select class="form-control" name="Secteurs" required disabled>
                         <OPTION VALUE="0" >Sélectionner un Secteur</OPTION>
                         @foreach ($mesSecteurs as $unS)
                             {
-                            <OPTION VALUE =" {{ $unS->id_secteur }}"> {{ $unS->lib_secteur }}</OPTION>
+                                @if($profilVisiteur->id_secteur == $unS->id_secteur){
+                            <OPTION VALUE =" {{ $unS->id_secteur }}" selected> {{ $unS->lib_secteur }}</OPTION>
+                            }
+                            @else{
+                            <OPTION VALUE =" {{ $unS->id_secteur }}" > {{ $unS->lib_secteur }}</OPTION>
+                            }
+
+                            @endif
+
+
                             }
                         @endforeach
                     </select></div>
 
-                    <div class="col-md-12"><label class="labels">Laboratoire</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->nom_laboratoire}}" value="" disabled></div>
+                    <div class="col-md-12"><label class="labels">Laboratoire</label><input type="text" class="form-control" placeholder="{{$profilVisiteur->nom_laboratoire}}" value="{{$profilVisiteur->nom_laboratoire}}" disabled></div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value="" disabled></div>
