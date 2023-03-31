@@ -4,22 +4,22 @@
 
             <div class="container main" style="height: 250px; text-align: center;">
                 <h1>
-                    Recherche d'un visiteur
+                    Visiteurs
                 </h1>
-                <div class="recherche" style="align-text: center; display: inline-block;">
+                <div class="recherche" style="text-align: center; display: inline-block;">
 
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-secondary active">
-                            <input type="radio" name="type"  value="nom_visiteur" autocomplete="off" checked> Nom
+                        <label class="btn btn-secondary active" style="padding:  10px 20px 10px 20px">
+                            <input type="radio" name="type"  value="nom_visiteur" autocomplete="off" checked > Nom
                         </label>
-                        <label class="btn btn-secondary">
+                        <label class="btn btn-secondary" style="padding:  10px 20px 10px 20px">
                             <input type="radio" name="type"  value="lib_secteur" autocomplete="off"> Secteur
                         </label>
-                        <label class="btn btn-secondary">
+                        <label class="btn btn-secondary" style="padding:  10px 20px 10px 20px">
                             <input type="radio" name="type"  value="nom_laboratoire" autocomplete="off"> Laboratoire
                         </label>
                     </div>
-                    <input type="text" id="rech" style="width: 200px; margin-top: 5px;" class="form-control rech"/>
+                    <input type="text" id="rech" placeholder="Recherche d'un visiteur" style="width: 300px; margin-top: 5px; padding:  10px 20px 10px 20px" class="form-control rech"/>
                 </div>
             </div>
 
