@@ -15,6 +15,8 @@ use App\Exceptions\MonException;
 class VisiteurController extends Controller
 {
 
+
+
     public function getLogin()
     {
         $erreur = "";
@@ -113,14 +115,14 @@ class VisiteurController extends Controller
 
 
 
-    public function getProfilVisiteur($idVisiteur)
+    public function getProfilVisiteur($id_visiteur)
     {
         try {
             $erreur = "";
             $monErreur = Session::get('monErreur');
             Session::forget('monErreur');
             $unServiceVisiteur = new ServiceVisiteur();
-            $profilVisiteur = $unServiceVisiteur->getProfilVisiteur($idVisiteur);
+            $profilVisiteur = $unServiceVisiteur->getProfilVisiteur($id_visiteur);
 
             $unServiceLabo = new ServiceLabo();
             $mesLabo = $unServiceLabo->getListeLabo();
@@ -131,7 +133,7 @@ class VisiteurController extends Controller
             $disabled = "";
             $selected = "";
 
-            return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'disabled', 'selected',  'erreur'));
+            return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'disabled', 'selected', 'id_visiteur', 'erreur'));
         } catch (MonException$e) {
             $erreur = $e->getMessage();
             return view('Vues/error', compact('erreur'));
@@ -140,6 +142,41 @@ class VisiteurController extends Controller
             return view('Vues/error', compact('erreur'));
         }
     }
+
+
+
+    public function validateVisiteur($id_visiteur)
+    {
+        try {
+            $erreur = "";
+
+            //$id_visiteur = Request::input('id_visiteur');
+            $prenom_visiteur = Request::input('prenom_visiteur');
+            $nom_visiteur = Request::input('nom_visiteur');
+            $adresse_visiteur = Request::input('adresse_visiteur');
+            $cp_visiteur = Request::input('cp_visiteur');
+            $id_secteur = Request::input('id_secteur');
+            $id_laboratoire = Request::input('id_laboratoire');
+
+
+            $unServiceVisiteur = new ServiceVisiteur();
+            if ($id_visiteur > 0) {
+                $unServiceVisiteur->updateVisiteur($id_visiteur, $prenom_visiteur, $adresse_visiteur, $cp_visiteur, $id_secteur, $id_laboratoire);
+            }
+
+            //return redirect('/profilVisiteur/$id_visiteur');
+            return back();
+        } catch (MonException $e) {
+            $erreur = $e->getMessage();
+            return view('Vues/error', compact('erreur'));
+        } catch (Exception $e) {
+            $erreur = $e->getMessage();
+            return view('Vues/error', compact('erreur'));
+        }
+
+
+    }
+
 
 
 }

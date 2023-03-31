@@ -25,6 +25,7 @@ Route::get('/seDeconnecter', [VisiteurController::class, 'signOut']);
 
 Route::get('/listeVisiteurs', [VisiteurController::class, 'getListeVisiteurs']);
 Route::get('/profilVisiteur/{id}', [VisiteurController::class, 'getProfilVisiteur']);
+Route::post('/validerVisiteur/{id}', [VisiteurController::class, 'validateVisiteur']);
 
 
 
