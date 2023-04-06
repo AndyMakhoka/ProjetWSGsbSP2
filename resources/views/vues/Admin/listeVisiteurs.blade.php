@@ -3,7 +3,7 @@
 
 
             <div class="container main" style="height: 250px; text-align: left;">
-                <h2>
+                <h2 class="text-center">
                     Visiteurs
                 </h2>
                 <div class="recherche" style="text-align: left; display: inline-block; margin-bottom: 20px">
