@@ -2,7 +2,7 @@
 @section('content')
 
 
-            <div class="container main" style="height: 250px; text-align: left;">
+            <div class="container main" style="text-align: left; border-radius: 30px; background: white; height: 100%;">
                 <h2 class="text-center">
                     Visiteurs
                 </h2>

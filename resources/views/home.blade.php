@@ -5,10 +5,6 @@
 
     {!! Html::style('assets/css/style1.css') !!}
     {!! Html::style('assets/css/styleper.css') !!}
-    <h2 style="color: white">Application GSB</h2>
-
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
 
 
     <!--
@@ -326,6 +322,7 @@
 
     <div class="container">
 
+        <br><br><br><br><br><br>
     <div class="grid">
         <a href="{{ url('/listeVisiteurs') }}">
         <div class="card">
