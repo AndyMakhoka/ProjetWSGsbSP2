@@ -14,6 +14,7 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
 
                     <h4 class="text-right" style="float: left">Informations de profil</h4>
+
                 </div>
 
                 <button type="button" id="Edit"  value="" style="width: 100%; background: white; border: none; text-align: right;"><span
