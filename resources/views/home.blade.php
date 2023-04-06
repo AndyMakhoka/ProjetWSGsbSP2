@@ -328,9 +328,8 @@
         <div class="card">
 
             <h4>Visiteurs</h4>
-            <p>
-                Standard chunk of Lorem Ipsum used since the 1500s is showed below
-                for those interested.
+            <p> - - -  - -
+                - - - - - -
             </p>
             <div class="shine"></div>
             <div class="background">
@@ -362,8 +361,8 @@
 
             <h4>Praticiens</h4>
             <p>
-                Standard chunk of Lorem Ipsum used since the 1500s is showed below
-                for those interested.
+                - - - -
+                - - - -
             </p>
             <div class="shine"></div>
             <div class="background">
