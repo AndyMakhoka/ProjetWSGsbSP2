@@ -7,9 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {!! Html::style('assets/css/monStyle.css') !!}
         {!! Html::style('assets/css/bootstrap.css') !!}
-
         {!! Html::style('assets/css/modal.css') !!}
-
 
 
         {!! Html::script('assets/js/bootstrap.min.js') !!}

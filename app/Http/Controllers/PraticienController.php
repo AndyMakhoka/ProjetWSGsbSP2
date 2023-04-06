@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\dao\ServiceActivite;
 use App\dao\ServicePraticien;
 use App\dao\ServiceVisiteur;
 use App\Exceptions\MonException;
@@ -21,8 +22,11 @@ class PraticienController
             $id_visiteur = Session::get('id');
             $mesPraticiens = $unServicePraticien->getPraticiens();
 
+            $unServiceActivite = new ServiceActivite();
+            $mesActivites = $unServiceActivite->getListeActivites();
 
-            return view('Vues/Admin/listePraticiens', compact('mesPraticiens','erreur'));
+
+            return view('Vues/Admin/listePraticiens', compact('mesPraticiens', 'mesActivites', 'erreur'));
         } catch (MonException$e) {
             $erreur = $e->getMessage();
             return view('Vues/error', compact('erreur'));
@@ -44,7 +48,12 @@ class PraticienController
             $vide = false;
             if ($mesPraticiens->count() == 0)
                 $vide = true;
-            return view('api.listePraticiens', compact('mesPraticiens', 'vide'));
+
+            $unServiceActivite = new ServiceActivite();
+            $mesActivites = $unServiceActivite->getListeActivites();
+
+
+            return view('api.listePraticiens', compact('mesPraticiens', 'mesActivites', 'vide'));
         } catch (MonException $e) {
             //$erreur = $e->getMessage();
             if (!$vide){
