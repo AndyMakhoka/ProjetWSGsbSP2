@@ -106,7 +106,8 @@ class VisiteurController extends Controller
                 $vide = true;
             return view('api.listeVisiteurs', compact('mesVisiteurs', 'vide'));
         } catch (MonException $e) {
-            $erreur = $e->getMessage();
+            //$erreur = $e->getMessage();
+            $erreur = "Trop de demandes";
             return view('vues/error', compact('erreur'));
         }
     }

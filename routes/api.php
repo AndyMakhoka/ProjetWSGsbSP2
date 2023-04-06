@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\VisiteurController;
+use App\Http\Controllers\PraticienController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/searchUser/{type}/{nom}', [VisiteurController::class, 'getListeUserByName']);
 Route::get('/searchUser/{type}', [VisiteurController::class, 'getListeUserByName']);
+
+Route::get('/searchPraticien/{type}/{nom}', [PraticienController::class, 'getListePraticienByName']);
+Route::get('/searchPraticien/{type}', [PraticienController::class, 'getListePraticienByName']);
+
+
+

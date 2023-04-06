@@ -2,45 +2,42 @@
 @section('content')
 
 
-            <div class="container main" style="height: 250px; text-align: center;">
-                <h1>
+            <div class="container main" style="height: 250px; text-align: left;">
+                <h2>
                     Visiteurs
-                </h1>
-                <div class="recherche" style="text-align: center; display: inline-block;">
+                </h2>
+                <div class="recherche" style="text-align: left; display: inline-block; margin-bottom: 20px">
 
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-secondary active" style="padding:  10px 20px 10px 20px">
-                            <input type="radio" name="type"  value="nom_visiteur" autocomplete="off" checked > Nom
+                            <input class="type" type="radio" name="type"  value="nom_visiteur" autocomplete="off" checked > Nom
                         </label>
                         <label class="btn btn-secondary" style="padding:  10px 20px 10px 20px">
-                            <input type="radio" name="type"  value="lib_secteur" autocomplete="off"> Secteur
+                            <input class="type" type="radio" name="type"  value="lib_secteur" autocomplete="off"> Secteur
                         </label>
                         <label class="btn btn-secondary" style="padding:  10px 20px 10px 20px">
-                            <input type="radio" name="type"  value="nom_laboratoire" autocomplete="off"> Laboratoire
+                            <input class="type" type="radio" name="type"  value="nom_laboratoire" autocomplete="off"> Laboratoire
                         </label>
                     </div>
                     <input type="text" id="rech" placeholder="Recherche d'un visiteur" style="width: 300px; margin-top: 5px; padding:  10px 20px 10px 20px" class="form-control rech"/>
                 </div>
-            </div>
 
-
-
-            <div class="container main" style="overflow-y : scroll; height: 1000px; width: 1200px">
-            <table class="table table-bordered table-striped table-responsive" style="text-align: center">
+            <table class="table table-bordered table-striped table-responsive" style="text-align: center; border: none !important; border: 0;">
                 <thead>
                 <tr>
-                    <th style="width:60%">ID</th>
-                    <th style="width:60%">Nom</th>
-                    <th style="width:60%">Prenom</th>
-                    <th style="width:60%">Labo</th>
-                    <th style="width:60%">Secteur</th>
-                    <th style="width:60%">Commune</th>
-                    <th style="width:60%">Adresse</th>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Labo</th>
+                    <th>Secteur</th>
+                    <th>Commune</th>
+                    <th>Adresse</th>
 
-                    <th style="width:20%">Modifier</th>
-                    <th style="width:20%">Supprimer</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
                 </tr>
                 </thead>
+
                 <tbody id="contenu">
                 @foreach($mesVisiteurs as $unVisiteur)
                     <tr>
@@ -91,6 +88,11 @@
                 var valeur = $("#rech").val();
                 $('#contenu').load('api/searchUser/' + type + '/' + valeur);
             });
+        $(".type").change(function() {
+            var type = $('input[name=type]:checked').val()
+            var valeur = $("#rech").val();
+            $('#contenu').load('api/searchUser/' + type + '/' + valeur);
+        });
         });
 
     </script>

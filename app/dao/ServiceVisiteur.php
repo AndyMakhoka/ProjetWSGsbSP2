@@ -56,9 +56,7 @@ class ServiceVisiteur
                 ->select()
                 ->join('laboratoire', 'visiteur.id_laboratoire', '=', 'laboratoire.id_laboratoire')
                 ->join('secteur', 'visiteur.id_secteur', '=', 'secteur.id_secteur')
-                ->orderBy('visiteur.nom_visiteur')
-                ->orderBy('visiteur.prenom_visiteur')
-
+                ->orderBy('visiteur.id_visiteur')
                 ->get();
             return $liste;
         }

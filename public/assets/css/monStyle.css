@@ -26,6 +26,9 @@ height:50px
 
 
 
+table{
+    border: none;
+}
 
 
 .form-control:focus {

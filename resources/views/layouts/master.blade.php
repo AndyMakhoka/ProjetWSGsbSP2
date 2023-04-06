@@ -5,9 +5,9 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {!! Html::style('assets/css/bootstrap.css') !!}
-        {!! Html::style('assets/css/bootstrap.css') !!}
         {!! Html::style('assets/css/monStyle.css') !!}
+        {!! Html::style('assets/css/bootstrap.css') !!}
+
         {!! Html::style('assets/css/modal.css') !!}
 
 
@@ -47,7 +47,7 @@
                 @if(Session::get('id') == 0)
                 <div class="collapse navbar-collapse" id="navbar-collapse-target">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a data-toggle="collapse" data-toggle="modal" data-target="#exampleModal">Se connecter</a></li>
+                        <li><button data-toggle="collapse" data-toggle="modal" data-target="#exampleModal" style="border: none; background: none; margin: 10px">Se connecter</button></li>
                     </ul>
                 </div>
                 @endif
@@ -56,11 +56,12 @@
                 <div class="collapse navbar-collapse" id="navbar-collapse-target">
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url('/listeVisiteurs') }}" data-toggle="collapse" data-target=".navbar-collapse.in">Visiteurs</a></li>
-                        <li><a href="{{ url('/lister') }}" data-toggle="collapse" data-target=".navbar-collapse.in">Praticiens</a></li>
+                        <li><a href="{{ url('/listePraticiens') }}" data-toggle="collapse" data-target=".navbar-collapse.in">Praticiens</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ url('/seDeconnecter') }}" data-toggle="collapse" data-target=".navbar-collapse.in">Se déconnecter</a></li>
+                        <li><div  ></div> <a class="glyphicon glyphicon-log-out" href="{{ url('/seDeconnecter') }}" data-toggle="collapse" data-target=".navbar-collapse.in"></a></li>
                     </ul>
+
                 </div>
                 @endif
 

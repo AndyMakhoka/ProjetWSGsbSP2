@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\VisiteurController;
-use \App\Http\Controllers\FraisController;
+use App\Http\Controllers\PraticienController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,27 +28,9 @@ Route::get('/profilVisiteur/{id}', [VisiteurController::class, 'getProfilVisiteu
 Route::post('/validerVisiteur/{id}', [VisiteurController::class, 'validateVisiteur']);
 
 
+Route::get('/listePraticiens', [PraticienController::class, 'getListePraticien']);
 
 
 
 
-Route::get('/listerFrais', [FraisController::class, 'getFraisVisiteur']);
 
-
-Route::get('/modifierFrais/{id}', [FraisController::class, 'updateFrais']);
-Route::post('/validerFrais', [FraisController::class, 'validateFrais']);
-
-
-Route::get('/ajouterFrais', [FraisController::class, 'addFrais']);
-Route::post('/validerFrais', [FraisController::class, 'validateFrais']);
-
-Route::get('/supprimerFrais/{id}', [FraisController::class, 'supprimeFrais']);
-
-//Frais Hors Forfait
-Route::get('/listeFraisHorsForfait/{id}', [FraisController::class, 'getFraisVisiteurHorsForfait']);
-
-Route::get('/modifierFraisHorsForfait/{id}', [FraisController::class, 'updateFraisHosForfait']);
-Route::post('/validerFraisHorsForfait', [FraisController::class, 'validateFraisHorsForfait']);
-
-Route::get('/ajouterFraisHorsForfait/{id}', [FraisController::class, 'addFraisHorsForfait']);
-Route::post('/validerFraisHorsForfait/{id}', [FraisController::class, 'validateFraisHorsForfait']);
