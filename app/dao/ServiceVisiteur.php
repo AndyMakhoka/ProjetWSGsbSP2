@@ -65,6 +65,21 @@ class ServiceVisiteur
         }
     }
 
+    public function getProfil($idvisiteur)
+    {
+        try {
+            $lesVisiteurs = DB::table('visiteur')
+                ->select()
+                ->join('laboratoire', 'visiteur.id_laboratoire', '=', 'laboratoire.id_laboratoire')
+                ->join('secteur', 'visiteur.id_secteur', '=', 'secteur.id_secteur')
+                ->where('visiteur.id_visiteur', '=', $idvisiteur)
+                ->first();
+            return $lesVisiteurs;
+        } catch (QueryException $e) {
+            throw new MonException($e->getMessage(), 5);
+        }
+    }
+
     public function getProfilVisiteur($idvisiteur)
     {
         try {

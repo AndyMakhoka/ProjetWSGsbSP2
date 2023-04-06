@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::get('/seConnecter', [VisiteurController::class, 'getLogin']);
 Route::post('/login', [VisiteurController::class , 'signIn']);
 Route::get('/seDeconnecter', [VisiteurController::class, 'signOut']);
+Route::get('/profil', [VisiteurController::class, 'getProfil']);
 
 Route::get('/listeVisiteurs', [VisiteurController::class, 'getListeVisiteurs']);
 Route::get('/profilVisiteur/{id}', [VisiteurController::class, 'getProfilVisiteur']);

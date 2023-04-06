@@ -58,9 +58,15 @@
                         <li><a href="{{ url('/listeVisiteurs') }}" data-toggle="collapse" data-target=".navbar-collapse.in">Visiteurs</a></li>
                         <li><a href="{{ url('/listePraticiens') }}" data-toggle="collapse" data-target=".navbar-collapse.in">Praticiens</a></li>
                     </ul>
+
                     <ul class="nav navbar-nav navbar-right">
                         <li><div  ></div> <a class="glyphicon glyphicon-log-out" href="{{ url('/seDeconnecter') }}" data-toggle="collapse" data-target=".navbar-collapse.in"></a></li>
                     </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><div  ></div> <a href="{{ url('/profil') }}" data-toggle="collapse" data-target=".navbar-collapse.in"> Profil </a></li>
+                    </ul>
+
+
 
                 </div>
                 @endif

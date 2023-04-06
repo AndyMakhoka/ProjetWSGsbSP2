@@ -114,6 +114,36 @@ class VisiteurController extends Controller
 
 
 
+    public function getProfil()
+    {
+        try {
+            $erreur = "";
+            $monErreur = Session::get('monErreur');
+            $id_visiteur = Session::get('id');
+            Session::forget('monErreur');
+            $unServiceVisiteur = new ServiceVisiteur();
+            $profilVisiteur = $unServiceVisiteur->getProfil($id_visiteur);
+
+            $unServiceLabo = new ServiceLabo();
+            $mesLabo = $unServiceLabo->getListeLabo();
+
+            $unServiceSecteur = new ServiceSecteur();
+            $mesSecteurs = $unServiceSecteur->getListeSecteur();
+
+            $disabled = "";
+            $selected = "";
+
+            return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'disabled', 'selected', 'id_visiteur', 'erreur'));
+        } catch (MonException$e) {
+            $erreur = $e->getMessage();
+            return view('Vues/error', compact('erreur'));
+        } catch (Exception$e) {
+            $erreur = $e->getMessage();
+            return view('Vues/error', compact('erreur'));
+        }
+    }
+
+
 
 
     public function getProfilVisiteur($id_visiteur)
