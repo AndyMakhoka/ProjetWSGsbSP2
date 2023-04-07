@@ -8,6 +8,7 @@
         {!! Html::style('assets/css/monStyle.css') !!}
         {!! Html::style('assets/css/bootstrap.css') !!}
         {!! Html::style('assets/css/modal.css') !!}
+        {!! Html::style('assets/css/jquery-ui.min.css') !!}
 
 
         {!! Html::script('assets/js/bootstrap.min.js') !!}
@@ -19,6 +20,9 @@
         {!! Html::script('assets/js/ui-bootstrap-tpls.0.11.js') !!}
         {!! Html::script('assets/js/ui-bootstrap-tpls.js') !!}
         {!! Html::script('assets/js/bootstrap.js') !!}
+
+        <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
+
 
 
 
@@ -124,15 +128,44 @@
                         {{ Form::close() }}
                 </div>
             </div>
-            {{ Form::close() }}
         </div>
 
 
         @yield('content')
+
     </div>
 
 
-    @yield('script')
+
+
+
     </body>
+
+    <!--
+    <footer style="text-align: center;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    float: bottom; width: 100%; position: relative; margin-bottom: 0; background-position: bottom;"><small>Copyright © 2023 GSB.com. Tous droits réservés.</small></footer>
+    -->
+
+<img style="position: absolute;
+    left: 0;
+    top: 0;
+    width: 30%;
+    opacity: 3%;
+    background-repeat: repeat;
+    z-index: -50;" class="BImage" src="https://www.pngmart.com/files/7/DNA-PNG-Image.png">
+
+    <img style="position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30%;
+    opacity: 3%;
+    background-repeat: repeat;
+    z-index: -50;" class="BImage" src="https://www.pngmart.com/files/7/DNA-PNG-Image.png">
+
 </html>
+
+@yield('script')
 

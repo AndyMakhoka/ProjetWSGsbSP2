@@ -40,29 +40,29 @@
                 <div class="modal-content">
 
 
-                    {!! Form::open(['url'=> 'login']) !!}
+                    {!! Form::open(['url'=> 'inviterPraticien/'.$unPraticien->id_praticien]) !!}
                     <div class="col-md-12 well well-md">
                         <center><h3>Inviter le praticien {{$unPraticien->nom_praticien}} {{$unPraticien->prenom_praticien}}</h3></center>
                         <div class="form-horizontal">
                             <div class="form-group" style="display: inline">
-                                <div class="col-md-12"><label class="labels">Activité</label>
+                                <div class="col-md-12"><label class="labels">Activité
 
                                     <select class="form-control" name="id_activite_compl"  required>
                                         <OPTION VALUE="0" > Selectionner une activité </OPTION>
                                         @foreach ($mesActivites as $uneA)
 
-                                            <OPTION VALUE =" {{ $uneA->id_activite_compl }}" > {{ $uneA->theme_activite }}</OPTION>
+                                            <OPTION VALUE ="{{$uneA->id_activite_compl}}" > {{ $uneA->theme_activite }}</OPTION>
 
                                         @endforeach
-                                    </select></div>
+                                    </select></label></div>
 
                                 <div class="col-md-12"><label class="labels">Specialiste</label>
 
-                                    <select class="form-control" name="id_sepcialiste" required>
+                                    <select class="form-control" name="lib_specialite" required>
                                         <OPTION VALUE="0" > Selectionner un specialiste </OPTION>
                                         @foreach ($mesSpecialites as $unS)
 
-                                            <OPTION VALUE =" {{ $unS->id_sepcialite }}" > {{ $unS->lib_specialite }}</OPTION>
+                                            <OPTION VALUE ="{{$unS->lib_specialite}}" > {{ $unS->lib_specialite }}</OPTION>
 
                                         @endforeach
                                     </select></div>
