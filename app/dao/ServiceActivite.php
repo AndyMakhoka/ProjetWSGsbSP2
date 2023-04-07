@@ -9,6 +9,19 @@ use Illuminate\Support\Facades\DB;
 class ServiceActivite
 {
 
+    public function getListeActivites()
+    {
+        try {
+            $lesActivites = DB::table('realiser')
+                ->select()
+                ->join('activite_compl', 'realiser.id_activite_compl', '=', 'activite_compl.id_activite_compl')
+                ->get();
+            return $lesActivites;
+        } catch (QueryException $e) {
+            throw new MonException($e->getMessage(), 5);
+        }
+    }
+
     public function getListeActivitesByVisiteur($id_visiteur)
     {
         try {
@@ -85,6 +98,9 @@ class ServiceActivite
 
         }
     }
+
+
+
 
 
 

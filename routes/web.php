@@ -30,6 +30,8 @@ Route::post('/validerVisiteur/{id}', [VisiteurController::class, 'validateVisite
 
 Route::post('/realiserActivite/{id}', [VisiteurController::class, 'realiserActivite']);
 
+Route::post('/inviterPraticien/{id_praticien}', [VisiteurController::class, 'inviterPraticien']);
+
 
 Route::get('/listePraticiens', [PraticienController::class, 'getListePraticien']);
 

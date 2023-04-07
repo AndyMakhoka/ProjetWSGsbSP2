@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\dao\ServiceActivite;
 use App\dao\ServiceSecteur;
+use App\dao\ServiceSpecialite;
 use MongoDB\Driver\Exception\Exception;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Request;
@@ -240,6 +241,35 @@ class VisiteurController extends Controller
 
             //return redirect('/profilVisiteur/$id_visiteur');
             return redirect('/profilVisiteur/'.$id_visiteur);
+        } catch (MonException $e) {
+            $erreur = $e->getMessage();
+            return view('Vues/error', compact('erreur'));
+        } catch (Exception $e) {
+            $erreur = $e->getMessage();
+            return view('Vues/error', compact('erreur'));
+        }
+
+
+    }
+
+    public function inviterPraticien($id_praticien)
+    {
+        try {
+            $erreur = "";
+
+
+
+
+            $id_activite_compl = request::input('id_activite_compl');
+            $id_specialite = request::input('lib_specialite');
+
+            $unServiceVisiteur = new ServiceVisiteur();
+            if ($id_praticien > 0) {
+                $unServiceVisiteur->inviterPraticien($id_praticien, $id_activite_compl, $id_specialite);
+            }
+
+            //return redirect('/profilVisiteur/$id_visiteur');
+            return back();
         } catch (MonException $e) {
             $erreur = $e->getMessage();
             return view('Vues/error', compact('erreur'));

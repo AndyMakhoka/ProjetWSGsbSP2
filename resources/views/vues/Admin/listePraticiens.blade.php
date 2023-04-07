@@ -52,7 +52,7 @@
                     <td>  {{ $unPraticien->coef_notoriete }}</td>
 
                     <td style="text-align:center;">
-                        <button class="glyphicon glyphicon-send" data-toggle="collapse" data-toggle="modal" data-target="#ModalInviter" style="border: none; background: none; margin: 10px"></button>
+                        <button class="glyphicon glyphicon-send" data-toggle="collapse" data-toggle="modal" data-target="#ModalInviter{{$unPraticien->nom_praticien}}{{$unPraticien->prenom_praticien}}" style="border: none; background: none; margin: 10px"></button>
 
                     </td>
                     <td style="text-align: center;"><a
@@ -69,23 +69,34 @@
                 </tr>
 
                 <!-- Modal -->
-                <div class="modal fade" id="ModalInviter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="ModalInviter{{$unPraticien->nom_praticien}}{{$unPraticien->prenom_praticien}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
 
 
-                            {!! Form::open(['url'=> 'login']) !!}
+                            {!! Form::open(['url'=> 'inviterPraticien/'.$unPraticien->id_praticien]) !!}
                             <div class="col-md-12 well well-md">
                                 <center><h3>Inviter le praticien {{$unPraticien->nom_praticien}} {{$unPraticien->prenom_praticien}}</h3></center>
                                 <div class="form-horizontal">
-                                    <div class="form-group">
+                                    <div class="form-group" style="display: inline">
                                         <div class="col-md-12"><label class="labels">Activité</label>
 
-                                            <select class="form-control" name="id_secteur" required>
+                                            <select class="form-control" name="id_activite_compl"  required>
                                                 <OPTION VALUE="0" > Selectionner une activité </OPTION>
                                                 @foreach ($mesActivites as $uneA)
 
-                                                    <OPTION VALUE =" {{ $uneA->id_activite_compl }}" > {{ $unS->theme_activite }}</OPTION>
+                                                    <OPTION VALUE ="{{$uneA->id_activite_compl}}" > {{ $uneA->theme_activite }}</OPTION>
+
+                                                @endforeach
+                                            </select></div>
+
+                                        <div class="col-md-12"><label class="labels">Specialiste</label>
+
+                                            <select class="form-control" name="lib_specialite" required>
+                                                <OPTION VALUE="0" > Selectionner un specialiste </OPTION>
+                                                @foreach ($mesSpecialites as $unS)
+
+                                                    <OPTION VALUE ="{{$unS->lib_specialite}}" > {{ $unS->lib_specialite }}</OPTION>
 
                                                 @endforeach
                                             </select></div>
@@ -112,7 +123,6 @@
                             {{ Form::close() }}
                         </div>
                     </div>
-                    {{ Form::close() }}
                 </div>
 
             @endforeach

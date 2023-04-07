@@ -116,4 +116,23 @@ class ServiceVisiteur
         }
     }
 
+    public function inviterPraticien($id_praticien, $id_activite_compl, $lib_specialite)
+    {
+        try {
+            $dateJour = date("Y-m-d");
+            $last = DB::table('inviter')
+                ->insert([
+
+                    'id_praticien' => $id_praticien,
+                    'id_activite_compl' => $id_activite_compl,
+                    'specialiste' => $lib_specialite,
+
+                ]);
+
+        } catch (QueryException $e) {
+            throw new MonException($e->getMessage(), 5);
+
+        }
+    }
+
 }

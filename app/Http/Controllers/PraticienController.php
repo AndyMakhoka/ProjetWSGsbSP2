@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\dao\ServiceActivite;
 use App\dao\ServicePraticien;
+use App\dao\ServiceSpecialite;
 use App\dao\ServiceVisiteur;
 use App\Exceptions\MonException;
 use Illuminate\Support\Facades\Session;
@@ -25,8 +26,11 @@ class PraticienController
             $unServiceActivite = new ServiceActivite();
             $mesActivites = $unServiceActivite->getListeActivites();
 
+            $unServiceSpecialite = new ServiceSpecialite();
+            $mesSpecialites = $unServiceSpecialite->getListeSpecialites();
 
-            return view('Vues/Admin/listePraticiens', compact('mesPraticiens', 'mesActivites', 'erreur'));
+
+            return view('Vues/Admin/listePraticiens', compact('mesPraticiens', 'mesActivites', 'mesSpecialites', 'erreur'));
         } catch (MonException$e) {
             $erreur = $e->getMessage();
             return view('Vues/error', compact('erreur'));
@@ -52,8 +56,11 @@ class PraticienController
             $unServiceActivite = new ServiceActivite();
             $mesActivites = $unServiceActivite->getListeActivites();
 
+            $unServiceSpecialite = new ServiceSpecialite();
+            $mesSpecialites = $unServiceSpecialite->getListeSpecialites();
 
-            return view('api.listePraticiens', compact('mesPraticiens', 'mesActivites', 'vide'));
+
+            return view('api.listePraticiens', compact('mesPraticiens', 'mesActivites', 'mesSpecialites', 'vide'));
         } catch (MonException $e) {
             //$erreur = $e->getMessage();
             if (!$vide){
