@@ -22,6 +22,9 @@ class VisiteurController extends Controller
         $erreur = "";
         try {
             $erreur = "";
+
+
+
             return view('Vues/formLogin', compact('erreur'));
         } catch (MonException $e) {
             $erreur = $e->getMessage();
@@ -43,10 +46,14 @@ class VisiteurController extends Controller
 
             if ($connected) {
                 $erreur = "";
+                $unServiceVisiteur = new ServiceVisiteur();
+                $profil = $unServiceVisiteur->getProfil(Session::get('id'));
+                $nomPrenom = "$profil->prenom_visiteur"." $profil->nom_visiteur";
+                Session::put('nomCompte', $nomPrenom);
                 if (Session::get('type') === 'p') {
-                    return view('Vues/homePraticien',  compact('erreur'));
+                    return view('Vues/homePraticien',  compact('profil', 'erreur'));
                 } else {
-                    return view('home',   compact('erreur'));
+                    return view('home',   compact('profil', 'erreur'));
                 }
             } else {
                 $erreur = "login ou mot de passe inconnu";

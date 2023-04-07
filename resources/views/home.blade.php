@@ -7,387 +7,84 @@
     {!! Html::style('assets/css/styleper.css') !!}
 
 
-    <!--
-
-
-
-    <div style="display: flex; opacity: 20%;">
-    <div class="material" >
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-
-    </div>
-
-        <div class="material" >
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-
-        </div>
-
-        <div class="material" >
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-
-        </div>
-
-    <div class="material">
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-    </div>
-
-    <div class="material">
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-        <div class="dna"></div>
-    </div>
-
-    </div>
-<br> <br> <br> <br> <br> <br> <br> <br>
-
-
-    <div style="display: flex; opacity: 100%;">
-        <div class="material" >
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-
-        </div>
-
-        <div class="material" >
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-
-        </div>
-
-        <div class="material" >
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-
-        </div>
-
-        <div class="material">
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-        </div>
-
-        <div class="material">
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-        </div>
-
-    </div>
-    <br> <br> <br> <br> <br> <br> <br> <br>
-
-    <div style="display: flex; opacity: 20%;">
-        <div class="material" >
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-
-        </div>
-
-        <div class="material" >
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-
-        </div>
-
-        <div class="material" >
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-
-        </div>
-
-        <div class="material">
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-        </div>
-
-        <div class="material">
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-            <div class="dna"></div>
-        </div>
-
-    </div>
-    <br> <br> <br> <br> <br> <br> <br> <br>
-
--->
 
     <div class="container">
 
-        <br><br><br><br><br><br>
-    <div class="grid">
-        <a href="{{ url('/listeVisiteurs') }}">
-        <div class="card">
+        @if(Session::get('id') == 0)
+            <h3 style="color: white;" >Application GSB</h3>
+            <br><br><br><br><br><br>
+        @else
 
-            <h4>Visiteurs</h4>
-            <p> - - -  - -
-                - - - - - -
-            </p>
-            <div class="shine"></div>
-            <div class="background">
-                <div class="tiles">
-                    <div class="tile tile-1"></div>
-                    <div class="tile tile-2"></div>
-                    <div class="tile tile-3"></div>
-                    <div class="tile tile-4"></div>
+            <h3 style="color: white;" >Application GSB</h3>
+            <br><br><br><br><br><br>
+            <div class="grid">
+                <a href="{{ url('/listeVisiteurs') }}">
+                    <div class="card">
 
-                    <div class="tile tile-5"></div>
-                    <div class="tile tile-6"></div>
-                    <div class="tile tile-7"></div>
-                    <div class="tile tile-8"></div>
+                        <h4>Visiteurs</h4>
+                        <p> - - -  - -
+                            - - - - - -
+                        </p>
+                        <div class="shine"></div>
+                        <div class="background">
+                            <div class="tiles">
+                                <div class="tile tile-1"></div>
+                                <div class="tile tile-2"></div>
+                                <div class="tile tile-3"></div>
+                                <div class="tile tile-4"></div>
 
-                    <div class="tile tile-9"></div>
-                    <div class="tile tile-10"></div>
-                </div>
+                                <div class="tile tile-5"></div>
+                                <div class="tile tile-6"></div>
+                                <div class="tile tile-7"></div>
+                                <div class="tile tile-8"></div>
 
-                <div class="line line-1"></div>
-                <div class="line line-2"></div>
-                <div class="line line-3"></div>
-            </div>
-        </div>
+                                <div class="tile tile-9"></div>
+                                <div class="tile tile-10"></div>
+                            </div>
 
-        </a>
+                            <div class="line line-1"></div>
+                            <div class="line line-2"></div>
+                            <div class="line line-3"></div>
+                        </div>
+                    </div>
 
-        <a href="{{ url('/listePraticiens') }}">
-        <div class="card">
+                </a>
 
-            <h4>Praticiens</h4>
-            <p>
-                - - - -
-                - - - -
-            </p>
-            <div class="shine"></div>
-            <div class="background">
-                <div class="tiles">
-                    <div class="tile tile-1"></div>
-                    <div class="tile tile-2"></div>
-                    <div class="tile tile-3"></div>
-                    <div class="tile tile-4"></div>
+                <a href="{{ url('/listePraticiens') }}">
+                    <div class="card">
 
-                    <div class="tile tile-5"></div>
-                    <div class="tile tile-6"></div>
-                    <div class="tile tile-7"></div>
-                    <div class="tile tile-8"></div>
+                        <h4>Praticiens</h4>
+                        <p>
+                            - - - -
+                            - - - -
+                        </p>
+                        <div class="shine"></div>
+                        <div class="background">
+                            <div class="tiles">
+                                <div class="tile tile-1"></div>
+                                <div class="tile tile-2"></div>
+                                <div class="tile tile-3"></div>
+                                <div class="tile tile-4"></div>
 
-                    <div class="tile tile-9"></div>
-                    <div class="tile tile-10"></div>
-                </div>
+                                <div class="tile tile-5"></div>
+                                <div class="tile tile-6"></div>
+                                <div class="tile tile-7"></div>
+                                <div class="tile tile-8"></div>
 
-                <div class="line line-1"></div>
-                <div class="line line-2"></div>
-                <div class="line line-3"></div>
-            </div>
-        </div>
+                                <div class="tile tile-9"></div>
+                                <div class="tile tile-10"></div>
+                            </div>
 
-        </a>
+                            <div class="line line-1"></div>
+                            <div class="line line-2"></div>
+                            <div class="line line-3"></div>
+                        </div>
+                    </div>
+
+                </a>
+
+
+                @endif
 
 
     </div>

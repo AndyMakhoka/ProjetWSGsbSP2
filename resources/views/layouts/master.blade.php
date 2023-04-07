@@ -68,7 +68,8 @@
                         <li><div  ></div> <a class="glyphicon glyphicon-log-out" href="{{ url('/seDeconnecter') }}" data-toggle="collapse" data-target=".navbar-collapse.in"></a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><div  ></div> <a href="{{ url('/profil') }}" data-toggle="collapse" data-target=".navbar-collapse.in"> Profil </a></li>
+                        <li><div  ></div> <a href="{{ url('/profil') }}" data-toggle="collapse" data-target=".navbar-collapse.in">
+                            {{\Illuminate\Support\Facades\Session::get('nomCompte')}} </a></li>
                     </ul>
 
 
