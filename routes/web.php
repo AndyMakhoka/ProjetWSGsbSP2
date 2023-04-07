@@ -28,6 +28,8 @@ Route::get('/listeVisiteurs', [VisiteurController::class, 'getListeVisiteurs']);
 Route::get('/profilVisiteur/{id}', [VisiteurController::class, 'getProfilVisiteur']);
 Route::post('/validerVisiteur/{id}', [VisiteurController::class, 'validateVisiteur']);
 
+Route::post('/realiserActivite/{id}', [VisiteurController::class, 'realiserActivite']);
+
 
 Route::get('/listePraticiens', [PraticienController::class, 'getListePraticien']);
 

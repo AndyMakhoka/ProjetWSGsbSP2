@@ -86,13 +86,49 @@
             </div>
 
         </div>
+        {{ Form::close() }}
+
+        {!! Form::open(['url' => "realiserActivite/$profilVisiteur->id_visiteur"])!!}
         <div class="col-md-4">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience" value="" disabled> </div> <br>
-                <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value="" disabled></div>
+            <div class="p-3 py-5" style="padding: 10px;">
+
+                <div class="col-md-12"><label class="labels">Ajouter activité complémentaire :</label>
+                    <input name="motif" type="text" class="form-control" placeholder="Motif" value="" required disabled>
+                    <input name="date" type="date" class="form-control" placeholder="date" value="" required disabled>
+                    <input name="lieu" type="text" class="form-control" placeholder="Lieu" value="" required disabled>
+                    <input name="theme" type="text" class="form-control" placeholder="Thème" value="" required disabled>
+                    <input name="montant_ac" type="number" class="form-control" placeholder="Montant" value="" required disabled></div> <br>
+                <div class="mt-5 text-center">
+                    <button id="reset" class="btn btn-primary profile-button" type="submit" disabled><span class="glyphicon glyphicon-ok"></span></button>
+                    <a class="btn btn-primary profile-button" type="button" href=" {{ url('/listeVisiteurs')}}">
+                        <span class="glyphicon glyphicon-remove"></span></a>
+                </div>
+
+
+                <br> <br>
+                <div class="col-md-12"><label class="labels" style="display: inline">Les activité complémentaire</label></div>
+                @if(isset($mesActivitesVisiteur))
+                @foreach($mesActivitesVisiteur as $uneActivitevisiteur)
+                    <input name="motif" type="text" class="form-control" placeholder="Motif" value="" required disabled>
+                    <input name="date" type="date" class="form-control" placeholder="date" value="" required disabled>
+                    <input name="lieu" type="text" class="form-control" placeholder="Lieu" value="" required disabled>
+                    <input name="theme" type="text" class="form-control" placeholder="Thème" value="" required disabled>
+                    <input name="montant_ac" type="number" class="form-control" placeholder="Montant" value="" required disabled></div> <br>
+            <div class="mt-5 text-center">
+                <button id="reset" class="btn btn-primary profile-button" type="submit" disabled><span class="glyphicon glyphicon-ok"></span></button>
+                <a class="btn btn-primary profile-button" type="button" href=" {{ url('/listeVisiteurs')}}">
+                    <span class="glyphicon glyphicon-remove"></span></a>
             </div>
+
+                @endforeach
+            @endif
+            </div>
+
+            {{ Form::close() }}
+
         </div>
+
+
     </div>
 </div>
 

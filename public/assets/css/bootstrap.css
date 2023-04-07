@@ -3232,6 +3232,7 @@ tbody.collapse.in {
   content: "";
   border-top: 0;
   border-bottom: 4px solid;
+
 }
 .dropup .dropdown-menu,
 .navbar-fixed-bottom .dropdown .dropdown-menu {
@@ -3865,9 +3866,16 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar-fixed-top,
   .navbar-fixed-bottom {
-    border-radius: 0;
+      border-radius: 0 0 20px 20px;
   }
 }
+
+.navbar-fixed-top, .navbar-fixed-bottom {
+
+    border-radius: 0 0 20px 20px;
+}
+
+
 .navbar-fixed-top {
   top: 0;
   border-width: 0 0 1px;
