@@ -137,6 +137,9 @@ a{
     background-color: #2a2b2c;
 
 }
+btn-active{
+    z-index: 1;
+}
 
 
 .btn-group{
@@ -145,6 +148,7 @@ a{
     border: solid 1px #F0F0F0;
 
 }
+
 
 
 

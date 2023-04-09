@@ -69,7 +69,7 @@
                 </tr>
 
                 <!-- Modal -->
-                <div class="modal fade" id="ModalInviter{{$unPraticien->nom_praticien}}{{$unPraticien->prenom_praticien}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade exempleModal" id="ModalInviter{{$unPraticien->nom_praticien}}{{$unPraticien->prenom_praticien}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
 
@@ -90,7 +90,7 @@
                                                 @endforeach
                                             </select></div>
 
-                                        <div class="col-md-12"><label class="labels">Specialiste</label>
+                                        <div class="col-md-12"><label class="labels">Specialité</label>
 
                                             <select class="form-control" name="lib_specialite" required>
                                                 <OPTION VALUE="0" > Selectionner un specialiste </OPTION>
