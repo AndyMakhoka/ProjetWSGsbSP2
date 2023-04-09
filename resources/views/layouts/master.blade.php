@@ -5,10 +5,12 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {!! Html::style('assets/css/monStyle.css') !!}
+
         {!! Html::style('assets/css/bootstrap.css') !!}
         {!! Html::style('assets/css/modal.css') !!}
         {!! Html::style('assets/css/jquery-ui.min.css') !!}
+        {!! Html::style('assets/css/monStyle.css') !!}
+        {!! Html::style('assets/css/navMenu.css') !!}
 
 
         {!! Html::script('assets/js/bootstrap.min.js') !!}
@@ -22,6 +24,7 @@
         {!! Html::script('assets/js/bootstrap.js') !!}
 
         <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
+
 
 
 
@@ -149,6 +152,7 @@
     float: bottom; width: 100%; position: relative; margin-bottom: 0; background-position: bottom;"><small>Copyright © 2023 GSB.com. Tous droits réservés.</small></footer>
     -->
 
+    <!--
 <img style="position: absolute;
     left: 0;
     top: 0;
@@ -164,8 +168,45 @@
     opacity: 3%;
     background-repeat: repeat;
     z-index: -50;" class="BImage" src="https://www.pngmart.com/files/7/DNA-PNG-Image.png">
+-->
 
 </html>
 
 @yield('script')
+
+
+@section('script')
+    <script>
+        // play on load for gallery view
+        setTimeout(transition, 1000);
+
+        $('.js-trigger-transition').on('click', function(e) {
+            e.preventDefault();
+            transition();
+        });
+
+        window.onload = function() {
+            e.preventDefault();
+            transition();
+        }
+
+
+        function transition() {
+            var tl = new TimelineMax();
+
+            tl.to(CSSRulePlugin.getRule('body:before'), 0.2, {cssRule: {top: '50%' }, ease: Power2.easeOut}, 'close')
+                .to(CSSRulePlugin.getRule('body:after'), 0.2, {cssRule: {bottom: '50%' }, ease: Power2.easeOut}, 'close')
+                .to($('.loader'), 0.2, {opacity: 1})
+                .to(CSSRulePlugin.getRule('body:before'), 0.2, {cssRule: {top: '0%' }, ease: Power2.easeOut}, '+=1.5', 'open')
+                .to(CSSRulePlugin.getRule('body:after'), 0.2, {cssRule: {bottom: '0%' }, ease: Power2.easeOut}, '-=0.2', 'open')
+                .to($('.loader'), 0.2, {opacity: 0}, '-=0.2');
+        }
+
+        window.onload = function() {
+            e.preventDefault();
+            transition();
+        }
+
+    </script>
+@endsection
 

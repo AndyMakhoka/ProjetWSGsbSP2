@@ -2,11 +2,11 @@
 @section('content')
 
 
-            <div class="container main" style="text-align: left; border-radius: 30px; background: white; height: 100%;">
+            <div class="container main" style="text-align: left;">
                 <h2 class="text-center">
                     Visiteurs
                 </h2>
-                <div class="recherche" style="text-align: left; display: inline-block; margin-bottom: 20px">
+                <div class="recherche" style="text-align: left; display: inline-block; margin-bottom: 20px;">
 
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-secondary active" style="padding:  10px 20px 10px 20px">

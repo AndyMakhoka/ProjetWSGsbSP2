@@ -5,6 +5,7 @@
 
     {!! Html::style('assets/css/style1.css') !!}
     {!! Html::style('assets/css/styleper.css') !!}
+    {!! Html::style('assets/css/navMenu.css') !!}
 
 
 
