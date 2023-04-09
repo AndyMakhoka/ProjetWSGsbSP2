@@ -11,6 +11,7 @@ body {
   min-height: 2000px;
   padding-top: 70px;
 
+
 }
 
 .espace{
@@ -30,8 +31,9 @@ height:50px
 
 table{
     border: none;
+    background-color: white;
 
-    box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+    box-shadow: rgba(100, 100, 111, 0.1) 0 7px 29px 0;
     padding: 100px;
     border-radius: 20px;
     z-index: 1;
@@ -39,11 +41,12 @@ table{
 }
 
 .recherche{
-    box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+    box-shadow: rgba(100, 100, 111, 0.1) 0 7px 29px 0;
     padding: 40px;
     border-radius: 20px;
     z-index: 1;
     border: none;
+    background-color: white;
 }
 
 
@@ -179,7 +182,7 @@ body {
     font-size: 1.6rem;
     font-family: "Open Sans", sans-serif;
     color: #565656 ;
-    background-color: #ffffff;
+    background-color: #FAFAFA;
     -webkit-font-smoothing: antialiased;
     /*&.is-changing{
       &:before,

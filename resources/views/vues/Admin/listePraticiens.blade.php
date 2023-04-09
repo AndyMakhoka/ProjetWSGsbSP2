@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 
-    <div class="container main" style="text-align: left; border-radius: 30px; background: white; height: 100%">
+    <div class="container main" style="text-align: left; border-radius: 30px; height: 100%">
         <h2 class="text-center">
             Praticiens
         </h2>
