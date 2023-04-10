@@ -5,7 +5,7 @@
 
 <div id="contenu" class="container rounded bg-white mt-5 mb-5">
     <div class="row">
-        <div class="col-md-3 border-right">
+        <div class="col-md-3 border-right"  style="background-color: #FAFAFA">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold"></span><span class="text-black-50"><br>{{$profilVisiteur->login_visiteur}}</span><span> </span></div>
         </div>
         <div class="col-md-5 border-right">
@@ -17,11 +17,11 @@
 
                 </div>
 
-                <button type="button" id="Edit"  value="" style="width: 100%; background: white; border: none; text-align: right;"><span
+                <button type="button" id="Edit"  value="" style="width: 100%; background: #FAFAFA; border: none; text-align: right;"><span
                         class="glyphicon glyphicon-pencil" data-toggle="tootltip" data-olacement="top"
                         title=""></span></button>
 
-                <button type="button" id="NoEdit"  value="" style="width: 100%; background: white; border: none; text-align: right;" hidden><span
+                <button type="button" id="NoEdit"  value="" style="width: 100%; background: #FAFAFA; border: none; text-align: right;" hidden><span
                         class="glyphicon glyphicon-remove" data-toggle="tootltip" data-olacement="top"
                         title=""></span></button>
 
