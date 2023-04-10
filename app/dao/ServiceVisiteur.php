@@ -125,7 +125,7 @@ class ServiceVisiteur
 
                     'id_praticien' => $id_praticien,
                     'id_activite_compl' => $id_activite_compl,
-                    'specialiste' => $lib_specialite,
+                    'specialiste' => $lib_specialite
 
                 ]);
 
