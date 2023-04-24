@@ -37,7 +37,7 @@ class ServiceActivite
     }
 
 
-    public function updateActivite($id_visiteur, $id_activite_compl, $date_activite, $lieu_activite, $theme_activite, $motif_activite, $montant_ac)
+    public function updateActivite($id_activite_compl, $date_activite, $lieu_activite, $theme_activite, $motif_activite, $montant_ac)
     {
         try {
             $dateJour = date("Y-m-d");
@@ -74,8 +74,7 @@ class ServiceActivite
         try {
             $dateJour = date("Y-m-d");
             $last = DB::table('activite_compl')
-                ->where('id_visiteur', '=', $id_visiteur)
-                ->insert([
+                ->insertGetId([
 
                     'date_activite' => $date_activite,
                     'lieu_activite' => $lieu_activite,
@@ -83,6 +82,9 @@ class ServiceActivite
                     'motif_activite' => $motif_activite
 
                 ]);
+
+
+
 
             DB::table('realiser')
 

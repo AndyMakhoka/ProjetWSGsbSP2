@@ -29,6 +29,7 @@ Route::get('/profilVisiteur/{id}', [VisiteurController::class, 'getProfilVisiteu
 Route::post('/validerVisiteur/{id}', [VisiteurController::class, 'validateVisiteur']);
 
 Route::post('/realiserActivite/{id}', [VisiteurController::class, 'realiserActivite']);
+Route::post('/modifierActivite/{id_V}{id_AC}', [VisiteurController::class, 'modifierActivite']);
 
 Route::post('/inviterPraticien/{id_praticien}', [VisiteurController::class, 'inviterPraticien']);
 

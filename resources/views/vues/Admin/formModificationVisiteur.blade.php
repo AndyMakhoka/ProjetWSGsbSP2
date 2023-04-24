@@ -88,40 +88,100 @@
         </div>
         {{ Form::close() }}
 
-        {!! Form::open(['url' => "realiserActivite/$profilVisiteur->id_visiteur"])!!}
         <div class="col-md-4">
             <div class="p-3 py-5" style="padding: 10px;">
 
-                <div class="col-md-12"><label class="labels">Ajouter activité complémentaire :</label>
-                    <input name="motif" type="text" class="form-control" placeholder="Motif" value="" required disabled>
-                    <input name="date" type="date" class="form-control" placeholder="date" value="" required disabled>
-                    <input name="lieu" type="text" class="form-control" placeholder="Lieu" value="" required disabled>
-                    <input name="theme" type="text" class="form-control" placeholder="Thème" value="" required disabled>
-                    <input name="montant_ac" type="number" class="form-control" placeholder="Montant" value="" required disabled></div> <br>
-                <div class="mt-5 text-center">
-                    <button id="reset" class="btn btn-primary profile-button" type="submit" disabled><span class="glyphicon glyphicon-ok"></span></button>
-                    <a class="btn btn-primary profile-button" type="button" href=" {{ url('/listeVisiteurs')}}">
-                        <span class="glyphicon glyphicon-remove"></span></a>
-                </div>
 
 
                 <br> <br>
                 <div class="col-md-12"><label class="labels" style="display: inline">Les activité complémentaire</label></div>
                 @if(isset($mesActivitesVisiteur))
                 @foreach($mesActivitesVisiteur as $uneActivitevisiteur)
-                    <input name="motif" type="text" class="form-control" placeholder="Motif" value="" required disabled>
-                    <input name="date" type="date" class="form-control" placeholder="date" value="" required disabled>
-                    <input name="lieu" type="text" class="form-control" placeholder="Lieu" value="" required disabled>
-                    <input name="theme" type="text" class="form-control" placeholder="Thème" value="" required disabled>
-                    <input name="montant_ac" type="number" class="form-control" placeholder="Montant" value="" required disabled></div> <br>
-            <div class="mt-5 text-center">
-                <button id="reset" class="btn btn-primary profile-button" type="submit" disabled><span class="glyphicon glyphicon-ok"></span></button>
-                <a class="btn btn-primary profile-button" type="button" href=" {{ url('/listeVisiteurs')}}">
-                    <span class="glyphicon glyphicon-remove"></span></a>
-            </div>
+            <br><div style="display: inline"><div>{{$uneActivitevisiteur->id_activite_compl}} {{$uneActivitevisiteur->theme_activite}} {{$uneActivitevisiteur->motif_activite}} {{$uneActivitevisiteur->lieu_activite}} {{$uneActivitevisiteur->date_activite}}<div>
+
+                            <button type="button" id="EditActivite"  value="" style="width: 100%; background: #FAFAFA; border: none; text-align: right;"  data-toggle="collapse" data-toggle="modal"  data-target="#ModalEditActivite{{$uneActivitevisiteur->id_activite_compl}}">
+                            <span  class="glyphicon glyphicon-pencil" data-toggle="tootltip" data-olacement="top"
+                                    title=""></span></button>
+
+                        </div>
+
+
+                            </div>
+
+
+                                <!-- Modal Ajouter Activite -->
+                                <div class="modal fade exempleModal" data-toggle="collapse" data-toggle="modal" id="ModalAddActivite" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+
+
+                                            {!! Form::open(['url'=> "realiserActivite/.$profilVisiteur->id_visiteur"]) !!}
+                                            <div class="col-md-12 well well-md">
+                                                <center><h3>Modifier l'activité N°{{$uneActivitevisiteur->id_activite_compl}}</h3></center>
+                                                <div class="form-horizontal">
+                                                    <div class="form-group" style="display: inline">
+                                                        <div class="col-md-12"><label class="labels">Ajouter activité complémentaire :</label>
+                                                            <input name="motif" type="text" class="form-control" placeholder="Motif" value="" required>
+                                                            <input name="date" type="date" class="form-control" placeholder="date" value="" required>
+                                                            <input name="lieu" type="text" class="form-control" placeholder="Lieu" value="" required>
+                                                            <input name="theme" type="text" class="form-control" placeholder="Thème" value="" required>
+                                                            <input name="montant_ac" type="number" class="form-control" placeholder="Montant" value="" required></div> <br>
+                                                        <div class="mt-5 text-center">
+                                                            <button class="btn btn-primary profile-button" type="submit"><span class="glyphicon glyphicon-ok"></span></button>
+                                                            <button type="button" class="btn btn-default btn-primary"
+                                                                    onclick="javascript: window.location = '';">
+                                                                <span class="glyphicon glyphicon-remove"></span> Annuler</button>
+                                                        </div>
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            {{ Form::close() }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Modal Modifier Activite -->
+                                <div class="modal fade exempleModal" data-toggle="collapse" data-toggle="modal" id="ModalEditActivite{{$uneActivitevisiteur->id_activite_compl}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+
+
+                                            {!! Form::open(['url'=> 'modifierActiviter/'.$profilVisiteur->id_visiteur .$uneActivitevisiteur->id_activite_compl]) !!}
+                                            <div class="col-md-12 well well-md">
+                                                <center><h3>Modifier l'activité N°{{$uneActivitevisiteur->id_activite_compl}}</h3></center>
+                                                <div class="form-horizontal">
+                                                    <div class="form-group" style="display: inline">
+                                                        <div class="col-md-12"><label class="labels">Ajouter activité complémentaire :</label>
+                                                            <input name="motif" type="text" class="form-control" placeholder="Motif" value="{{$uneActivitevisiteur->motif_activite}}" required>
+                                                            <input name="date" type="date" class="form-control" placeholder="date" value="{{$uneActivitevisiteur->date_activite}}" required>
+                                                            <input name="lieu" type="text" class="form-control" placeholder="Lieu" value="{{$uneActivitevisiteur->lieu_activite}}" required>
+                                                            <input name="theme" type="text" class="form-control" placeholder="Thème" value="{{$uneActivitevisiteur->theme_activite}}" required>
+                                                            <input name="montant_ac" type="number" class="form-control" placeholder="Montant" value="{{$uneActivitevisiteur->montant_ac}}" required></div> <br>
+                                                        <div class="mt-5 text-center">
+                                                            <button class="btn btn-primary profile-button" type="submit"><span class="glyphicon glyphicon-ok"></span></button>
+                                                            <button type="button" class="btn btn-default btn-primary"
+                                                                    onclick="javascript: window.location = '';">
+                                                                <span class="glyphicon glyphicon-remove"></span> Annuler</button>
+                                                        </div>
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            {{ Form::close() }}
+                                        </div>
+                                    </div>
+                                </div>
+
 
                 @endforeach
-            @endif
+                            <br>
+                            <button id="add" class="btn btn-primary profile-button" type="button" data-toggle="collapse" data-toggle="modal"  data-target="#ModalAddActivite" >Ajouter<span class="glyphicon"></span></button>
+                            @endif
             </div>
 
             {{ Form::close() }}
@@ -186,6 +246,9 @@
 
                 //document.getElementById('NoEditS').hidden= true;
             });
+
+
+
 
             /*
             $("#reset").click(function (){

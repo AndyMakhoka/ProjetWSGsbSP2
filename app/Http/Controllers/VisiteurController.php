@@ -139,10 +139,13 @@ class VisiteurController extends Controller
             $unServiceSecteur = new ServiceSecteur();
             $mesSecteurs = $unServiceSecteur->getListeSecteur();
 
+            $unServicActivite = new ServiceActivite();
+            $mesActivitesVisiteur = $unServicActivite->getListeActivitesByVisiteur($id_visiteur);
+
             $disabled = "";
             $selected = "";
 
-            return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'disabled', 'selected', 'id_visiteur', 'erreur'));
+            return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'disabled', 'selected', 'id_visiteur', 'mesActivitesVisiteur', 'erreur'));
         } catch (MonException$e) {
             $erreur = $e->getMessage();
             return view('Vues/error', compact('erreur'));
@@ -240,7 +243,36 @@ class VisiteurController extends Controller
             }
 
             //return redirect('/profilVisiteur/$id_visiteur');
-            return redirect('/profilVisiteur/'.$id_visiteur);
+            return redirect('/profilVisiteur/' . $id_visiteur);
+        } catch (MonException $e) {
+            $erreur = $e->getMessage();
+            return view('Vues/error', compact('erreur'));
+        } catch (Exception $e) {
+            $erreur = $e->getMessage();
+            return view('Vues/error', compact('erreur'));
+        }
+
+    }
+
+        public function modifierActivite($id_Visiteur, $id_Activite)
+        {
+        try {
+            $erreur = "";
+
+            //$id_visiteur = Request::input('id_visiteur');
+            $motif_activite = Request::input('motif');
+            $date_activite = Request::input('date');
+            $lieu_activite = Request::input('lieu');
+            $theme_activite = Request::input('theme');
+            $montant_ac = Request::input('montant_ac');
+
+            $unServiceActivite = new ServiceActivite();
+            if ($id_Activite > 0) {
+                $unServiceActivite->updateActivite($id_Activite, $date_activite, $lieu_activite, $theme_activite, $motif_activite, $montant_ac);
+            }
+
+            //return redirect('/profilVisiteur/$id_visiteur');
+            return redirect('/profilVisiteur/'.$id_Visiteur);
         } catch (MonException $e) {
             $erreur = $e->getMessage();
             return view('Vues/error', compact('erreur'));
