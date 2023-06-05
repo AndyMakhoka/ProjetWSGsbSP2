@@ -145,7 +145,7 @@ class VisiteurController extends Controller
             $disabled = "";
             $selected = "";
 
-            return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'disabled', 'selected', 'id_visiteur', 'mesActivitesVisiteur', 'erreur'));
+            return view('Vues/Admin/formModificationProfil', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'disabled', 'selected', 'id_visiteur', 'mesActivitesVisiteur', 'erreur'));
         } catch (MonException$e) {
             $erreur = $e->getMessage();
             return view('Vues/error', compact('erreur'));

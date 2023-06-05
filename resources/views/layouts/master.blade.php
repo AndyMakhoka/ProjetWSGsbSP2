@@ -120,7 +120,7 @@
                                                 class="glyphicon glyphicon-log-in"></span> Valider
                                         </button>
                                         <button type="button" class="btn btn-default btn-primary"
-                                                onclick="javascript: window.location = '';">
+                                                onclick=" window.location = '';">
                                             <span class="glyphicon glyphicon-remove"></span> Annuler</button>
                                     </div>
                                 </div>

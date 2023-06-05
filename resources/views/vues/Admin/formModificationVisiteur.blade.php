@@ -88,6 +88,7 @@
         </div>
         {{ Form::close() }}
 
+
         <div class="col-md-4">
             <div class="p-3 py-5" style="padding: 10px;">
 
@@ -109,39 +110,7 @@
                             </div>
 
 
-                                <!-- Modal Ajouter Activite -->
-                                <div class="modal fade exempleModal" data-toggle="collapse" data-toggle="modal" id="ModalAddActivite" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
 
-
-                                            {!! Form::open(['url'=> "realiserActivite/.$profilVisiteur->id_visiteur"]) !!}
-                                            <div class="col-md-12 well well-md">
-                                                <center><h3>Modifier l'activité N°{{$uneActivitevisiteur->id_activite_compl}}</h3></center>
-                                                <div class="form-horizontal">
-                                                    <div class="form-group" style="display: inline">
-                                                        <div class="col-md-12"><label class="labels">Ajouter activité complémentaire :</label>
-                                                            <input name="motif" type="text" class="form-control" placeholder="Motif" value="" required>
-                                                            <input name="date" type="date" class="form-control" placeholder="date" value="" required>
-                                                            <input name="lieu" type="text" class="form-control" placeholder="Lieu" value="" required>
-                                                            <input name="theme" type="text" class="form-control" placeholder="Thème" value="" required>
-                                                            <input name="montant_ac" type="number" class="form-control" placeholder="Montant" value="" required></div> <br>
-                                                        <div class="mt-5 text-center">
-                                                            <button class="btn btn-primary profile-button" type="submit"><span class="glyphicon glyphicon-ok"></span></button>
-                                                            <button type="button" class="btn btn-default btn-primary"
-                                                                    onclick="javascript: window.location = '';">
-                                                                <span class="glyphicon glyphicon-remove"></span> Annuler</button>
-                                                        </div>
-
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            {{ Form::close() }}
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <!-- Modal Modifier Activite -->
                                 <div class="modal fade exempleModal" data-toggle="collapse" data-toggle="modal" id="ModalEditActivite{{$uneActivitevisiteur->id_activite_compl}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -149,21 +118,21 @@
                                         <div class="modal-content">
 
 
-                                            {!! Form::open(['url'=> 'modifierActiviter/'.$profilVisiteur->id_visiteur .$uneActivitevisiteur->id_activite_compl]) !!}
+                                            {!! Form::open(['url'=> "modifierActiviter/$profilVisiteur->id_visiteur/$uneActivitevisiteur->id_activite_compl"]) !!}
                                             <div class="col-md-12 well well-md">
                                                 <center><h3>Modifier l'activité N°{{$uneActivitevisiteur->id_activite_compl}}</h3></center>
                                                 <div class="form-horizontal">
                                                     <div class="form-group" style="display: inline">
-                                                        <div class="col-md-12"><label class="labels">Ajouter activité complémentaire :</label>
+                                                        <div class="col-md-12"><label class="labels">Modifier activité complémentaire :</label>
                                                             <input name="motif" type="text" class="form-control" placeholder="Motif" value="{{$uneActivitevisiteur->motif_activite}}" required>
                                                             <input name="date" type="date" class="form-control" placeholder="date" value="{{$uneActivitevisiteur->date_activite}}" required>
                                                             <input name="lieu" type="text" class="form-control" placeholder="Lieu" value="{{$uneActivitevisiteur->lieu_activite}}" required>
                                                             <input name="theme" type="text" class="form-control" placeholder="Thème" value="{{$uneActivitevisiteur->theme_activite}}" required>
                                                             <input name="montant_ac" type="number" class="form-control" placeholder="Montant" value="{{$uneActivitevisiteur->montant_ac}}" required></div> <br>
                                                         <div class="mt-5 text-center">
-                                                            <button class="btn btn-primary profile-button" type="submit"><span class="glyphicon glyphicon-ok"></span></button>
+                                                            <button class="btn btn-primary profile-button" type="submit"><span class="glyphicon glyphicon-ok"></span> Valider</button>
                                                             <button type="button" class="btn btn-default btn-primary"
-                                                                    onclick="javascript: window.location = '';">
+                                                                    onclick=" window.location = '';">
                                                                 <span class="glyphicon glyphicon-remove"></span> Annuler</button>
                                                         </div>
 
@@ -182,18 +151,53 @@
                             <br>
                             <button id="add" class="btn btn-primary profile-button" type="button" data-toggle="collapse" data-toggle="modal"  data-target="#ModalAddActivite" >Ajouter<span class="glyphicon"></span></button>
                             @endif
+
+                            <!-- Modal Ajouter Activite -->
+                            <div class="modal fade exempleModal" data-toggle="collapse" data-toggle="modal" id="ModalAddActivite" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+
+
+                                        {!! Form::open(['url'=> "realiserActivite/$profilVisiteur->id_visiteur"]) !!}
+                                        <div class="col-md-12 well well-md">
+                                            <div class="form-horizontal">
+                                                <div class="form-group" style="display: inline">
+                                                    <div class="col-md-12"><label class="labels">Ajouter activité complémentaire :</label>
+                                                        <input name="motif" type="text" class="form-control" placeholder="Motif" value="" required>
+                                                        <input name="date" type="date" class="form-control" placeholder="date" value="" required>
+                                                        <input name="lieu" type="text" class="form-control" placeholder="Lieu" value="" required>
+                                                        <input name="theme" type="text" class="form-control" placeholder="Thème" value="" required>
+                                                        <input name="montant_ac" type="number" class="form-control" placeholder="Montant" value="" required></div> <br>
+                                                    <div class="mt-5 text-center">
+                                                        <button class="btn btn-primary profile-button" type="submit"><span class="glyphicon glyphicon-ok"></span> Valider</button>
+                                                        <button type="button" class="btn btn-default btn-primary"
+                                                                onclick=" window.location = '';">
+                                                            <span class="glyphicon glyphicon-remove"></span> Annuler</button>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        {{ Form::close() }}
+                                    </div>
+                                </div>
+                            </div>
             </div>
 
-            {{ Form::close() }}
 
         </div>
 
 
     </div>
 </div>
-
+</div>
+    {{ Form::close() }}
 
 @endsection
+
 @section('script')
     <script type="text/javascript">
 
