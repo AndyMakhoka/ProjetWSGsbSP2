@@ -34,7 +34,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::post('/login', [VisiteurController::class , 'signIn']);
+Route::post('/getConnexion', [VisiteurController::class , 'signIn']);
 Route::get('/seDeconnecter', [VisiteurController::class, 'signOut']);
 Route::get('/profil', [VisiteurController::class, 'getProfil']);
 

@@ -154,13 +154,25 @@ class VisiteurController extends Controller
             $disabled = "";
             $selected = "";
 
-            return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'disabled', 'selected', 'id_visiteur', 'mesActivitesVisiteur', 'erreur'));
+            $response = array(
+                "profilVisiteur" => $profilVisiteur,
+                "mesSecteurs" => $mesSecteurs,
+                "disabled" => $disabled,
+                "selected" => $selected,
+                "id_visiteur" => $id_visiteur,
+                "mesActivitesVisiteur" => $mesActivitesVisiteur
+
+            );
+
+
+            //return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'disabled', 'selected', 'id_visiteur', 'mesActivitesVisiteur', 'erreur'));
+            return json_encode($response);
         } catch (MonException$e) {
             $erreur = $e->getMessage();
-            return view('Vues/error', compact('erreur'));
+            return response()->json($erreur, 204);
         } catch (Exception$e) {
             $erreur = $e->getMessage();
-            return view('Vues/error', compact('erreur'));
+            return response()->json($erreur, 204);
         }
     }
 

@@ -29,8 +29,12 @@ class PraticienController
             $unServiceSpecialite = new ServiceSpecialite();
             $mesSpecialites = $unServiceSpecialite->getListeSpecialites();
 
+            $response = $mesPraticiens;
 
-            return view('Vues/Admin/listePraticiens', compact('mesPraticiens', 'mesActivites', 'mesSpecialites', 'erreur'));
+
+            //return view('Vues/Admin/listePraticiens', compact('mesPraticiens', 'mesActivites', 'mesSpecialites', 'erreur'));
+            return json_encode($response);
+
         } catch (MonException$e) {
             $erreur = $e->getMessage();
             return view('Vues/error', compact('erreur'));
