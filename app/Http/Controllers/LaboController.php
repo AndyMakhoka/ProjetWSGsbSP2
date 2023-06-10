@@ -23,13 +23,15 @@ class LaboController
             $unServiceLabo = new ServiceLabo();
             $id_visiteur = Session::get('id');
             $mesLabo = $unServiceLabo->getListeLabo();
-            return view('Vues/Admin/formModificationVisiteur', compact('mesLabo', 'erreur'));
+            $response = $mesLabo;
+
+            return json_encode($response);
         } catch (MonException$e) {
             $erreur = $e->getMessage();
-            return view('Vues/error', compact('erreur'));
+            return response()->json($erreur, 204);
         } catch (Exception$e) {
             $erreur = $e->getMessage();
-            return view('Vues/error', compact('erreur'));
+            return response()->json($erreur, 204);
         }
     }
 }

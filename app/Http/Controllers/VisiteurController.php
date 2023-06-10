@@ -19,55 +19,24 @@ class VisiteurController extends Controller
 
 
 
-    public function getLogin()
+
+
+    public function signIn()
     {
         $erreur = "";
         try {
-            $erreur = "";
-
-
-
-            return view('Vues/formLogin', compact('erreur'));
-        } catch (MonException $e) {
-            $erreur = $e->getMessage();
-            return view('Vues/formLogin', compact('erreur'));
-        } catch (\Exception $e) {
-            $erreur = $e->getMessage();
-            return view('Vues/formLogin', compact('erreur'));
-
-        }
-    }
-
-    public function signIn(){
-        $erreur = "";
-        try {
-            $login = Request::input('login');
-            $pwd = Request::input('pwd');
-            $unVisiteur = new ServiceVisiteur();
-            $connected = $unVisiteur->login($login, $pwd);
-
-            if ($connected) {
-                $erreur = "";
-                $unServiceVisiteur = new ServiceVisiteur();
-                $profil = $unServiceVisiteur->getProfil(Session::get('id'));
-                $nomPrenom = "$profil->prenom_visiteur"." $profil->nom_visiteur";
-                Session::put('nomCompte', $nomPrenom);
-                if (Session::get('type') === 'p') {
-                    return view('Vues/homePraticien',  compact('profil', 'erreur'));
-                } else {
-                    return view('home',   compact('profil', 'erreur'));
-                }
-            } else {
-                $erreur = "login ou mot de passe inconnu";
-                return view('Vues/formLogin', compact('erreur'));
+            $json = file_get_contents('php://input'); // Récupération du flux JSON
+            $visiteurJson = json_decode($json);
+            if ($visiteurJson != null) {
+                $login_visiteur = $visiteurJson->login_visiteur;
+                $pwd_visiteur = $visiteurJson->pwd_visiteur;
+                $unService = new ServiceVisiteur();
+                $visiteur = $unService->login($login_visiteur, $pwd_visiteur);
+                return json_encode($visiteur);
             }
         } catch (MonException $e) {
             $erreur = $e->getMessage();
-            return view('Vues/formLogin', compact('erreur'));
-
-        } catch (Exception $e) {
-            $erreur = $e->getMessage();
-            return view('Vues/formLogin', compact('erreur'));
+            return response()->json($erreur);
         }
     }
 
@@ -87,16 +56,18 @@ class VisiteurController extends Controller
             $unServiceVisiteur = new ServiceVisiteur();
             $id_visiteur = Session::get('id');
             $mesVisiteurs = $unServiceVisiteur->getVisiteurs();
+            $response = $mesVisiteurs;
 
 
 
-            return view('Vues/Admin/ListeVisiteurs', compact('mesVisiteurs','erreur'));
+            //return view('Vues/Admin/ListeVisiteurs', compact('mesVisiteurs','erreur'));
+            return json_encode($response);
         } catch (MonException$e) {
             $erreur = $e->getMessage();
-            return view('Vues/error', compact('erreur'));
+            return response()->json($erreur, 204);
         } catch (Exception$e) {
             $erreur = $e->getMessage();
-            return view('Vues/error', compact('erreur'));
+            return response()->json($erreur, 204);
         }
     }
 
@@ -123,12 +94,13 @@ class VisiteurController extends Controller
 
 
 
-    public function getProfil()
+    public function getProfil($id_visiteur)
     {
         try {
             $erreur = "";
             $monErreur = Session::get('monErreur');
-            $id_visiteur = Session::get('id');
+
+
             Session::forget('monErreur');
             $unServiceVisiteur = new ServiceVisiteur();
             $profilVisiteur = $unServiceVisiteur->getProfil($id_visiteur);
@@ -145,13 +117,16 @@ class VisiteurController extends Controller
             $disabled = "";
             $selected = "";
 
-            return view('Vues/Admin/formModificationProfil', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'disabled', 'selected', 'id_visiteur', 'mesActivitesVisiteur', 'erreur'));
+            //return view('Vues/Admin/formModificationProfil', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'disabled', 'selected', 'id_visiteur', 'mesActivitesVisiteur', 'erreur'));
+
+            return response()->json($profilVisiteur, $mesLabo, (array)$mesSecteurs, $disabled, $selected, $id_visiteur, $mesActivitesVisiteur, $erreur);
+
         } catch (MonException$e) {
             $erreur = $e->getMessage();
-            return view('Vues/error', compact('erreur'));
+            return response()->json($erreur, 204);
         } catch (Exception$e) {
             $erreur = $e->getMessage();
-            return view('Vues/error', compact('erreur'));
+            return response()->json($erreur, 204);
         }
     }
 
