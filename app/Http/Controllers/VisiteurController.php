@@ -84,11 +84,15 @@ class VisiteurController extends Controller
             $vide = false;
             if ($mesVisiteurs->count() == 0)
                 $vide = true;
-            return view('api.listeVisiteurs', compact('mesVisiteurs', 'vide'));
+
+            $response = $mesVisiteurs;
+            return json_encode($response);
+            //return view('api.listeVisiteurs', compact('mesVisiteurs', 'vide'));
         } catch (MonException $e) {
             //$erreur = $e->getMessage();
             $erreur = "Trop de demandes";
-            return view('vues/error', compact('erreur'));
+            //$erreur = $e->getMessage();
+            return response()->json($erreur, 204);
         }
     }
 
@@ -167,6 +171,7 @@ class VisiteurController extends Controller
 
             //return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'disabled', 'selected', 'id_visiteur', 'mesActivitesVisiteur', 'erreur'));
             return json_encode($response);
+
         } catch (MonException$e) {
             $erreur = $e->getMessage();
             return response()->json($erreur, 204);

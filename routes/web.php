@@ -36,7 +36,7 @@ Route::post('/inviterPraticien/{id_praticien}', [VisiteurController::class, 'inv
 
 Route::get('/listePraticiens', [PraticienController::class, 'getListePraticien']);
 
-
+Route::get('/miseajour/{pwd}', [App\Http\Controllers\ControllerLogin::class, 'updatePassword']);
 
 
 

@@ -59,12 +59,14 @@ class PraticienController
 
             $unServiceActivite = new ServiceActivite();
             $mesActivites = $unServiceActivite->getListeActivites();
-
+-
             $unServiceSpecialite = new ServiceSpecialite();
             $mesSpecialites = $unServiceSpecialite->getListeSpecialites();
 
+            $response = $mesPraticiens;
+            return json_encode($response);
 
-            return view('api.listePraticiens', compact('mesPraticiens', 'mesActivites', 'mesSpecialites', 'vide'));
+            //return view('api.listePraticiens', compact('mesPraticiens', 'mesActivites', 'mesSpecialites', 'vide'));
         } catch (MonException $e) {
             //$erreur = $e->getMessage();
             if (!$vide){
