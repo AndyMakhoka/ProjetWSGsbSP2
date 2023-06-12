@@ -77,8 +77,8 @@ class VisiteurController extends Controller
             $erreur = "";
             $monErreur = Session::get('monErreur');
             Session::forget('monErreur');
+
             $user = new ServiceVisiteur();
-            $id_visiteur = Session::get('id');
 
             $mesVisiteurs = $user->getUserNomType($type, $nom);
             $vide = false;
@@ -158,15 +158,7 @@ class VisiteurController extends Controller
             $disabled = "";
             $selected = "";
 
-            $response = array(
-                "profilVisiteur" => $profilVisiteur,
-                "mesSecteurs" => $mesSecteurs,
-                "disabled" => $disabled,
-                "selected" => $selected,
-                "id_visiteur" => $id_visiteur,
-                "mesActivitesVisiteur" => $mesActivitesVisiteur
-
-            );
+            $response = $profilVisiteur;
 
 
             //return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'disabled', 'selected', 'id_visiteur', 'mesActivitesVisiteur', 'erreur'));
@@ -180,6 +172,87 @@ class VisiteurController extends Controller
             return response()->json($erreur, 204);
         }
     }
+
+    public function getListeActivitesVisiteur($id_visiteur)
+    {
+        try {
+            $erreur = "";
+            $monErreur = Session::get('monErreur');
+            Session::forget('monErreur');
+
+            $unServicActivite = new ServiceActivite();
+            $mesActivitesVisiteur = $unServicActivite->getListeActivitesByVisiteur($id_visiteur);
+            //$mesActivitesVisiteurs = "";
+            $disabled = "";
+            $selected = "";
+
+            $response = $mesActivitesVisiteur;
+
+            //return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'disabled', 'selected', 'id_visiteur', 'mesActivitesVisiteur', 'erreur'));
+            return json_encode($response);
+
+        } catch (MonException$e) {
+            $erreur = $e->getMessage();
+            return response()->json($erreur, 204);
+        } catch (Exception$e) {
+            $erreur = $e->getMessage();
+            return response()->json($erreur, 204);
+        }
+    }
+    public function getListeSecteurs($id_visiteur)
+    {
+        try {
+            $erreur = "";
+            $monErreur = Session::get('monErreur');
+            Session::forget('monErreur');
+
+            $unServiceSecteur = new ServiceSecteur();
+            $mesSecteurs = $unServiceSecteur->getListeSecteur();
+            //$mesActivitesVisiteurs = "";
+            $disabled = "";
+            $selected = "";
+
+            $response = $mesSecteurs;
+
+            //return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'disabled', 'selected', 'id_visiteur', 'mesActivitesVisiteur', 'erreur'));
+            return json_encode($response);
+
+        } catch (MonException$e) {
+            $erreur = $e->getMessage();
+            return response()->json($erreur, 204);
+        } catch (Exception$e) {
+            $erreur = $e->getMessage();
+            return response()->json($erreur, 204);
+        }
+    }
+
+    public function getListeLabo($id_visiteur)
+    {
+        try {
+            $erreur = "";
+            $monErreur = Session::get('monErreur');
+            Session::forget('monErreur');
+
+            $unServiceLabo = new ServiceLabo();
+            $mesLabo = $unServiceLabo->getListeLabo();
+            //$mesActivitesVisiteurs = "";
+            $disabled = "";
+            $selected = "";
+
+            $response = $mesLabo;
+
+            //return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'disabled', 'selected', 'id_visiteur', 'mesActivitesVisiteur', 'erreur'));
+            return json_encode($response);
+
+        } catch (MonException$e) {
+            $erreur = $e->getMessage();
+            return response()->json($erreur, 204);
+        } catch (Exception$e) {
+            $erreur = $e->getMessage();
+            return response()->json($erreur, 204);
+        }
+    }
+
 
 
 

@@ -25,9 +25,10 @@ class ServicePraticien
     public function getPraticienNomType($type, $nom) {
         try {
             $listePraticiens = DB::table('praticien')
-                ->where($type, 'like', $nom.'%')
+
                 ->select()
                 ->join('type_praticien', 'praticien.id_praticien', '=', 'type_praticien.id_type_praticien')
+                ->where($type, 'like', $nom.'%')
                 ->orderBy('praticien.id_praticien')
                 ->get();
             return $listePraticiens;

@@ -10,6 +10,7 @@ use App\Exceptions\MonException;
 use Illuminate\Support\Facades\Session;
 use MongoDB\Driver\Exception\Exception;
 
+
 class PraticienController
 {
 
@@ -50,18 +51,12 @@ class PraticienController
             $monErreur = Session::get('monErreur');
             Session::forget('monErreur');
             $unServicePraticien = new ServicePraticien();
-            //$id_visiteur = Session::get('id');
 
             $mesPraticiens = $unServicePraticien->getPraticienNomType($type, $nom);
             $vide = false;
             if ($mesPraticiens->count() == 0)
                 $vide = true;
-
-            $unServiceActivite = new ServiceActivite();
-            $mesActivites = $unServiceActivite->getListeActivites();
 -
-            $unServiceSpecialite = new ServiceSpecialite();
-            $mesSpecialites = $unServiceSpecialite->getListeSpecialites();
 
             $response = $mesPraticiens;
             return json_encode($response);
@@ -69,10 +64,9 @@ class PraticienController
             //return view('api.listePraticiens', compact('mesPraticiens', 'mesActivites', 'mesSpecialites', 'vide'));
         } catch (MonException $e) {
             //$erreur = $e->getMessage();
-            if (!$vide){
-                $erreur = "Trop de demandes";
-            }
-            return view('vues/error', compact('erreur'));
+            $erreur = "Trop de demandes";
+            //$erreur = $e->getMessage();
+            return response()->json($erreur, 204);
         }
     }
 

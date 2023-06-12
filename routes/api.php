@@ -40,6 +40,11 @@ Route::get('/profil', [VisiteurController::class, 'getProfil']);
 
 Route::get('/listeVisiteurs', [VisiteurController::class, 'getListeVisiteurs']);
 Route::get('/profilVisiteur/{id}', [VisiteurController::class, 'getProfilVisiteur']);
+
+Route::get('/listeSecteurs/{id}', [VisiteurController::class, 'getListeSecteurs']);
+Route::get('/listeActivitesVisiteur/{id}', [VisiteurController::class, 'getListeActivitesVisiteur']);
+Route::get('/listelabo/{id}', [VisiteurController::class, 'getListeLabo']);
+
 Route::post('/validerVisiteur/{id}', [VisiteurController::class, 'validateVisiteur']);
 
 Route::post('/realiserActivite/{id}', [VisiteurController::class, 'realiserActivite']);
