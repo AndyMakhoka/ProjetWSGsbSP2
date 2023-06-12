@@ -19,22 +19,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/seConnecter', [VisiteurController::class, 'getLogin']);
-Route::post('/login', [VisiteurController::class , 'signIn']);
-Route::get('/seDeconnecter', [VisiteurController::class, 'signOut']);
-Route::get('/profil', [VisiteurController::class, 'getProfil']);
-
-Route::get('/listeVisiteurs', [VisiteurController::class, 'getListeVisiteurs']);
-Route::get('/profilVisiteur/{id}', [VisiteurController::class, 'getProfilVisiteur']);
-Route::post('/validerVisiteur/{id}', [VisiteurController::class, 'validateVisiteur']);
-
-Route::post('/realiserActivite/{id}', [VisiteurController::class, 'realiserActivite']);
-Route::post('/modifierActivite/{id_V}{id_AC}', [VisiteurController::class, 'modifierActivite']);
-
-Route::post('/inviterPraticien/{id_praticien}', [VisiteurController::class, 'inviterPraticien']);
-
-
-Route::get('/listePraticiens', [PraticienController::class, 'getListePraticien']);
 
 Route::get('/miseajour/{pwd}', [App\Http\Controllers\ControllerLogin::class, 'updatePassword']);
 
