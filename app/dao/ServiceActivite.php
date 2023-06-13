@@ -69,8 +69,7 @@ class ServiceActivite
                 ]);
 
             DB::table('realiser')
-                ->where('id_visiteur', '=', $id_visiteur)
-                ->where('id_activite_compl', '=', $last)
+                ->where('id_activite_compl', '=', $id_activite_compl)
                 ->update([
 
 
@@ -78,6 +77,12 @@ class ServiceActivite
 
 
                 ]);
+
+            $response = array(
+                'status_message' => 'Modification réalisée'
+            );
+
+            return $response;
         } catch (QueryException $e) {
             throw new MonException($e->getMessage(), 5);
 

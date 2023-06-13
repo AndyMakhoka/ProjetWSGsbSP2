@@ -331,16 +331,24 @@ class VisiteurController extends Controller
         try {
             $erreur = "";
 
-            //$id_visiteur = Request::input('id_visiteur');
-            $motif_activite = Request::input('motif');
-            $date_activite = Request::input('date');
-            $lieu_activite = Request::input('lieu');
-            $theme_activite = Request::input('theme');
-            $montant_ac = Request::input('montant_ac');
+            $json = file_get_contents('php://input'); // Récupération du flux JSON
+            $activiteJson = json_decode($json);
+            if ($activiteJson != null) {
+
+                $motif_activite = $activiteJson->motif_activite;
+                $date_activite = $activiteJson->date_activite;
+                $lieu_activite = $activiteJson->lieu_activite;
+                $theme_activite = $activiteJson->theme_activite;
+                $montant_ac = $activiteJson->montant_ac;
+
+
+            }
+
 
             $unServiceActivite = new ServiceActivite();
             if ($id_visiteur > 0) {
-                $unServiceActivite->addActivite($id_visiteur, $date_activite, $lieu_activite, $theme_activite, $motif_activite, $montant_ac);
+                $uneReponse = $unServiceActivite->addActivite($id_visiteur, $date_activite, $lieu_activite, $theme_activite, $motif_activite, $montant_ac);
+                return response()->json($uneReponse);
             }
 
             //return redirect('/profilVisiteur/$id_visiteur');
@@ -355,25 +363,32 @@ class VisiteurController extends Controller
 
     }
 
-        public function modifierActivite($id_Visiteur, $id_Activite)
+        public function modifierActivite($id_Activite)
         {
         try {
             $erreur = "";
 
-            //$id_visiteur = Request::input('id_visiteur');
-            $motif_activite = Request::input('motif');
-            $date_activite = Request::input('date');
-            $lieu_activite = Request::input('lieu');
-            $theme_activite = Request::input('theme');
-            $montant_ac = Request::input('montant_ac');
+            $json = file_get_contents('php://input'); // Récupération du flux JSON
+            $activiteJson = json_decode($json);
+            if ($activiteJson != null) {
+
+                $motif_activite = $activiteJson->motif_activite;
+                $date_activite = $activiteJson->date_activite;
+                $lieu_activite = $activiteJson->lieu_activite;
+                $theme_activite = $activiteJson->theme_activite;
+                $montant_ac = $activiteJson->montant_ac;
+
+
+            }
 
             $unServiceActivite = new ServiceActivite();
             if ($id_Activite > 0) {
-                $unServiceActivite->updateActivite($id_Activite, $date_activite, $lieu_activite, $theme_activite, $motif_activite, $montant_ac);
+                $uneReponse = $unServiceActivite->updateActivite($id_Activite, $date_activite, $lieu_activite, $theme_activite, $motif_activite, $montant_ac);
+                return response()->json($uneReponse);
             }
 
             //return redirect('/profilVisiteur/$id_visiteur');
-            return redirect('/profilVisiteur/'.$id_Visiteur);
+            //return redirect('/profilVisiteur/'.$id_Visiteur);
         } catch (MonException $e) {
             $erreur = $e->getMessage();
             return view('Vues/error', compact('erreur'));

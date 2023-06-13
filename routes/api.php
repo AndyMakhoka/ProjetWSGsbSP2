@@ -50,7 +50,7 @@ Route::get('/listelabo/{id}', [VisiteurController::class, 'getListeLabo']);
 Route::post('/validerVisiteur/{id}', [VisiteurController::class, 'validateVisiteur']);
 
 Route::post('/realiserActivite/{id}', [VisiteurController::class, 'realiserActivite']);
-Route::post('/modifierActivite/{id_V}{id_AC}', [VisiteurController::class, 'modifierActivite']);
+Route::post('/modifierActivite/{id_AC}', [VisiteurController::class, 'modifierActivite']);
 
 Route::post('/inviterPraticien/{id_praticien}', [VisiteurController::class, 'inviterPraticien']);
 
