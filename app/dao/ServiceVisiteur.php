@@ -96,7 +96,7 @@ class ServiceVisiteur
         }
     }
 
-    public function updateVisiteur($id_visiteur, $prenom_visiteur, $adresse_visiteur, $cp_visiteur, $id_secteur, $id_laboratoire)
+    public function updateVisiteur($id_visiteur, $nom_visiteur, $prenom_visiteur, $adresse_visiteur, $cp_visiteur, $id_secteur, $id_laboratoire)
     {
         try {
             $dateJour = date("Y-m-d");
@@ -104,6 +104,7 @@ class ServiceVisiteur
                 ->where('id_visiteur', '=', $id_visiteur)
                 ->update([
 
+                    'nom_visiteur' => $nom_visiteur,
                     'prenom_visiteur' => $prenom_visiteur,
                     'adresse_visiteur' => $adresse_visiteur,
                     'cp_visiteur' => $cp_visiteur,
@@ -111,6 +112,11 @@ class ServiceVisiteur
                     'id_laboratoire' => $id_laboratoire
 
                 ]);
+
+            $response = array(
+                'status_message' => 'Modification réalisée'
+            );
+            return $response;
         } catch (QueryException $e) {
             throw new MonException($e->getMessage(), 5);
 

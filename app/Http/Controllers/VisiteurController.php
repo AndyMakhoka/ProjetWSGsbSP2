@@ -199,6 +199,33 @@ class VisiteurController extends Controller
             return response()->json($erreur, 204);
         }
     }
+
+    public function getUneActiviteVisiteur($id_activite_compl)
+    {
+        try {
+            $erreur = "";
+            $monErreur = Session::get('monErreur');
+            Session::forget('monErreur');
+
+            $unServicActivite = new ServiceActivite();
+            $uneActiviteVisiteur = $unServicActivite->getUneActiviteVisiteur($id_activite_compl);
+            //$mesActivitesVisiteurs = "";
+            $disabled = "";
+            $selected = "";
+
+            $response = $uneActiviteVisiteur;
+
+            //return view('Vues/Admin/formModificationVisiteur', compact('profilVisiteur', 'mesLabo', 'mesSecteurs', 'disabled', 'selected', 'id_visiteur', 'mesActivitesVisiteur', 'erreur'));
+            return json_encode($response);
+
+        } catch (MonException$e) {
+            $erreur = $e->getMessage();
+            return response()->json($erreur, 204);
+        } catch (Exception$e) {
+            $erreur = $e->getMessage();
+            return response()->json($erreur, 204);
+        }
+    }
     public function getListeSecteurs($id_visiteur)
     {
         try {
@@ -262,17 +289,26 @@ class VisiteurController extends Controller
             $erreur = "";
 
             //$id_visiteur = Request::input('id_visiteur');
-            $prenom_visiteur = Request::input('prenom_visiteur');
-            $nom_visiteur = Request::input('nom_visiteur');
-            $adresse_visiteur = Request::input('adresse_visiteur');
-            $cp_visiteur = Request::input('cp_visiteur');
-            $id_secteur = Request::input('id_secteur');
-            $id_laboratoire = Request::input('id_laboratoire');
+
+            $json = file_get_contents('php://input'); // Récupération du flux JSON
+            $visiteurJson = json_decode($json);
+            if ($visiteurJson != null) {
+
+                $prenom_visiteur = $visiteurJson->prenom_visiteur;
+                $nom_visiteur = $visiteurJson->nom_visiteur;
+                $adresse_visiteur = $visiteurJson->adresse_visiteur;
+                $cp_visiteur = $visiteurJson->cp_visiteur;
+                $id_secteur = $visiteurJson->id_secteur;
+                $id_laboratoire = $visiteurJson->id_laboratoire;
+
+
+            }
 
 
             $unServiceVisiteur = new ServiceVisiteur();
             if ($id_visiteur > 0) {
-                $unServiceVisiteur->updateVisiteur($id_visiteur, $prenom_visiteur, $adresse_visiteur, $cp_visiteur, $id_secteur, $id_laboratoire);
+                $uneReponse = $unServiceVisiteur->updateVisiteur($id_visiteur, $nom_visiteur, $prenom_visiteur, $adresse_visiteur, $cp_visiteur, $id_secteur, $id_laboratoire);
+                return response()->json($uneReponse);
             }
 
             //return redirect('/profilVisiteur/$id_visiteur');

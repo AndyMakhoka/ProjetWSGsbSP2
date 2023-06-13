@@ -43,6 +43,8 @@ Route::get('/profilVisiteur/{id}', [VisiteurController::class, 'getProfilVisiteu
 
 Route::get('/listeSecteurs/{id}', [VisiteurController::class, 'getListeSecteurs']);
 Route::get('/listeActivitesVisiteur/{id}', [VisiteurController::class, 'getListeActivitesVisiteur']);
+Route::get('/AfficherActiviteVisiteur/{id}', [VisiteurController::class, 'getUneActiviteVisiteur']);
+
 Route::get('/listelabo/{id}', [VisiteurController::class, 'getListeLabo']);
 
 Route::post('/validerVisiteur/{id}', [VisiteurController::class, 'validateVisiteur']);

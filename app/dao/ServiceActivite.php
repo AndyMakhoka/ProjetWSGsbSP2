@@ -22,6 +22,21 @@ class ServiceActivite
         }
     }
 
+    public function getUneActiviteVisiteur($id_activite_compl)
+    {
+        try {
+            $uneActivite = DB::table('activite_compl')
+                ->select()
+                ->join('realiser', 'activite_compl.id_activite_compl', '=', 'realiser.id_activite_compl')
+                ->where('activite_compl.id_activite_compl', '=', $id_activite_compl)
+                ->first();
+            return $uneActivite;
+        } catch (QueryException $e) {
+            throw new MonException($e->getMessage(), 5);
+        }
+    }
+
+
     public function getListeActivitesByVisiteur($id_visiteur)
     {
         try {
