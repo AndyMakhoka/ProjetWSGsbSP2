@@ -23,10 +23,11 @@ class ServiceVisiteur
                     Session::put('type', $visiteur->type_visiteur);
                     $connected = true;
                 }
+            return $visiteur;
         } catch (QueryException $e) {
             throw new MonException($e->getMessage(), 5);
         }
-        return $connected;
+
     }
 
     public function logout(){
